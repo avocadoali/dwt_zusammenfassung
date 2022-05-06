@@ -1,5 +1,5 @@
 #+TITLE: Zusammenfassung
-#+author: Mihir Mahajan, Alfred Nguyen
+#+author: Mihir Mahajan, Alfred Nguyen, Noah Kieferngarten
 
 * Diskrete Wahrscheinlichkeitsräume
 ** Grundlagen
