@@ -1,0 +1,105 @@
+% Created 2022-05-01 Sun 21:59
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Mihir Mahajan}
+\date{\today}
+\title{Zusammenfassung}
+\hypersetup{
+ pdfauthor={Mihir Mahajan},
+ pdftitle={Zusammenfassung},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Diskrete Wahrscheinlichkeitsräume}
+\label{sec:org635cbf4}
+\subsection{Grundlagen}
+\label{sec:orgf54d1a3}
+
+\subsubsection{Definition 1}
+\label{sec:org5aa9f49}
+\begin{itemize}
+\item Ein diskreter Wahrscheinlichkeitsraum ist durch eine \textbf{Ergebnismenge} \(\Omega = \{\omega_1,...,\omega_n\}\) von Elementarereignissen gegeben
+\item Jedem Ereignis \$\(\omega\)\textsubscript{i4} ist eine Wahrscheinlichkeit \(0 \leq Pr[\omega_i] \leq 1\) zugeordnet \\
+\(\sum_{\omega \in \Omega} Pr[\omega]= 1\)
+\item Die Menge \(E \subseteq \Omega\) heißt Ereignis. \(Pr[E] = \sum_{\omega \in E} Pr[\omega]\)
+\item \(\bar{E}\) ist komplement zu E
+\end{itemize}
+
+
+Man kann standard Mengenoperationen auf Ereignisse machen, also bei Ereignissen \(A,B\) dann auch \(A \cup B\), \(A \cap B\)
+
+\subsubsection{Lemma 8}
+\label{sec:org85fa5b0}
+Für Ereignisse \(A,B, A_1, A_2,...,A_n\) gilt
+\begin{itemize}
+\item \(Pr[\emptyset] = 0, Pr[\Omega] = 1\)
+\item \(0 \leq Pr[A] \leq 1\)
+\item \(Pr[\bar{A}] = 1 - Pr[A]\)
+\item Wenn \(A \subseteq B\) so folgt \(Pr[A] \leq Pr[B]\)
+\item Additionssatz: Bei \textbf{paarweise disjunkten} Ereignissen gilt: \\
+\(Pr[\bigcup^{n}_{i=1} A_i] = \sum^n_{i=1} Pr[A_i]\) \\
+Insbesondere gilt also:\\
+\(Pr[A \cup B] = Pr[A] + Pr[B]\) \\
+Und für unendliche Menge von \textbf{disjunkten} Ereignissen:\\
+\(Pr[\bigcup^{\infty}_{i=1} A_i] = \sum^{\infty}_{i=1} Pr[A_i]\) \\
+\end{itemize}
+
+\subsubsection{Satz 9 Siebformel}
+\label{sec:orgf1e9969}
+Lemma 8, gilt nur für \textbf{disjunkte} Mengen. Das geht auch für nicht disjunkte!
+\begin{enumerate}
+\item Zwei Mengen
+\label{sec:orgf4b4d95}
+\(Pr[A \cup B] = Pr[A] + Pr[B] - Pr[A \cap B]\)
+\item Drei Mengen
+\label{sec:orgea099c9}
+\(Pr[A_1 \cup A_2 \cup A_3] =\) \\
+\(Pr[A1] + Pr[A2] + Pr[A3]\) \\
+\(- Pr[A1 \cap A2] - Pr[A1 \cap A3] - Pr[A_2 \cap A_3\) \\
+\(+ Pr[A_1 \cap A_2 \cap A_3]\)
+\item n Mengen
+\label{sec:org811426b}
+Veranschaulichen an Venn-Diagramm
+\begin{enumerate}
+\item Alle aufaddieren
+\item Paarweise schnitte subtrahieren
+\item Dreifache schnitte dazuaddieren
+\item 4- fache schritte subtrahieren
+\item \ldots{}
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Wahl der Wahrscheinlichkeiten}
+\label{sec:orgd080b19}
+Prinzip von Laplace (Pierre Simon Laplace (1749–1827)): Wenn nichts dagegen spricht, gehen wir davon aus, dass alle Elementarereignisse gleich wahrscheinlich sind.
+\(Pr[E] = \frac{|E|}{|\Omega|}\)
+
+\subsection{Bedingte Wahrscheinlichkeiten}
+\label{sec:orgd7bf044}
+\subsubsection{Definition 12}
+\label{sec:org9da895c}
+\(A\) und \(B\) seien Ereignisse mit \(Pr[B] > 0\). Die bedingte Wahrscheinlichkeit \(Pr[A|B]\) von A gegeben B ist definiert als:
+\(Pr[A|B] := \frac{Pr[A \cap B]}{Pr[B]}\)
+
+Umgangssprachlich: \(Pr[A|B]\) beschreibt die Wahrscheinlichkeit, dass A eintritt wenn B eintritt.
+
+Die bedingten Wahrscheinlichkeiten \(Pr[·|B]\) bilden für ein beliebiges Ereignis \(B \subseteq \Omega\) mit \(Pr[B] > 0\) einen neuen Wahrscheinlichkeitsraum über \(\Omega\).
+\end{document}

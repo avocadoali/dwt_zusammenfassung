@@ -1,2 +1,80 @@
-TITLE: Diskrete Wahrscheinlichkeitstheorie
-#+author: Ali, Mihir, Noah
+#+TITLE: Zusammenfassung
+#+author: Mihir Mahajan, Alfred Nguyen
+
+* Diskrete Wahrscheinlichkeitsräume
+** Grundlagen
+
+*** Definition 1
+- Ein diskreter Wahrscheinlichkeitsraum ist durch eine *Ergebnismenge* $\Omega = \{\omega_1,...,\omega_n\}$ von Elementarereignissen gegeben
+- Jedem Ereignis $\omega_i4 ist eine Wahrscheinlichkeit $0 \leq Pr[\omega_i] \leq 1$ zugeordnet \\
+  $\sum_{\omega \in \Omega} Pr[\omega]= 1$
+- Die Menge $E \subseteq \Omega$ heißt Ereignis. $Pr[E] = \sum_{\omega \in E} Pr[\omega]$
+- $\bar{E}$ ist komplement zu E
+
+
+Man kann standard Mengenoperationen auf Ereignisse machen, also bei Ereignissen $A,B$ dann auch $A \cup B$, $A \cap B$
+
+*** Lemma 8
+Für Ereignisse $A,B, A_1, A_2,...,A_n$ gilt
+- $Pr[\emptyset] = 0, Pr[\Omega] = 1$
+- $0 \leq Pr[A] \leq 1$
+- $Pr[\bar{A}] = 1 - Pr[A]$
+- Wenn $A \subseteq B$ so folgt $Pr[A] \leq Pr[B]$
+- Additionssatz: Bei *paarweise disjunkten* Ereignissen gilt: \\
+  $Pr[\bigcup^{n}_{i=1} A_i] = \sum^n_{i=1} Pr[A_i]$ \\
+  Insbesondere gilt also:\\
+  $Pr[A \cup B] = Pr[A] + Pr[B]$ \\
+  Und für unendliche Menge von *disjunkten* Ereignissen:\\
+  $Pr[\bigcup^{\infty}_{i=1} A_i] = \sum^{\infty}_{i=1} Pr[A_i]$ \\
+
+*** Satz 9 Siebformel
+Lemma 8, gilt nur für *disjunkte* Mengen. Das geht auch für nicht disjunkte!
+**** Zwei Mengen
+$Pr[A \cup B] = Pr[A] + Pr[B] - Pr[A \cap B]$
+**** Drei Mengen
+$Pr[A_1 \cup A_2 \cup A_3] =$ \\
+$Pr[A1] + Pr[A2] + Pr[A3]$ \\
+$- Pr[A1 \cap A2] - Pr[A1 \cap A3] - Pr[A_2 \cap A_3$ \\
+$+ Pr[A_1 \cap A_2 \cap A_3]$
+**** n Mengen
+Veranschaulichen an Venn-Diagramm
+1. Alle aufaddieren
+2. Paarweise schnitte subtrahieren
+3. Dreifache schnitte dazuaddieren
+4. 4- fache schritte subtrahieren
+5. ...
+
+*** Wahl der Wahrscheinlichkeiten
+Prinzip von Laplace (Pierre Simon Laplace (1749–1827)): Wenn nichts dagegen spricht, gehen wir davon aus, dass alle Elementarereignisse gleich wahrscheinlich sind.
+$Pr[E] = \frac{|E|}{|\Omega|}$
+
+** Bedingte Wahrscheinlichkeiten
+*** Definition 12
+$A$ und $B$ seien Ereignisse mit $Pr[B] > 0$. Die bedingte Wahrscheinlichkeit $Pr[A|B]$ von A gegeben B ist definiert als:
+$Pr[A|B] := \frac{Pr[A \cap B]}{Pr[B]}$
+
+Umgangssprachlich: $Pr[A|B]$ beschreibt die Wahrscheinlichkeit, dass A eintritt wenn B eintritt.
+
+Die bedingten Wahrscheinlichkeiten $Pr[·|B]$ bilden für ein beliebiges Ereignis $B \subseteq \Omega$ mit $Pr[B] > 0$ einen neuen Wahrscheinlichkeitsraum über $\Omega$.
+
+
+*** Baba Beispiele
+**** TODO Töchterproblem
+**** TODO Ziegenproblem
+**** TODO Geburtstagsproblem
+
+*** Satz 18 (Satz von der totalen Wahrscheinlichkeit)
+Die Ereignisse $A_1, ..., An$ seien paarweise disjunkt und es gelte $B \subseteq A1 \cup ... \cup An$. \\
+$Pr[B] = \sum_{i=1}^n Pr[B|A_i] * Pr[A_i]$ \\
+analog für $n \rightarrow \infty$
+
+*** Satz 19 (Satz von Bayes)
+Es seien $A_1, ..., A_n$ paarweise disjunkt, mit $Pr[A_j] > 0$ für alle j.
+Außerdem sei $B \subseteq A_1 \cup ... \cup A_n$ ein Ereignis mit $Pr[B]>0$.
+Dann gilt für beliebiges $i \in [n]$
+
+$Pr[A_i|B] = \frac{Pr[A_i \cap B]}{Pr[B]} = \frac{Pr[B|A_i] * Pr[A_i]}{\sum_{j=1}^n Pr[B|A_j] * Pr[A_j]}$
+
+* Unabhängigkeit
+ Wenn das auftreten von Ereignissen unabhängig ist.
+ $Pr[A \cup B] = Pr[A] * Pr[B]$
