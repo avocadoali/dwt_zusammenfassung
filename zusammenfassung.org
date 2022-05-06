@@ -1,0 +1,2 @@
+TITLE: Diskrete Wahrscheinlichkeitstheorie
+#+author: Ali, Mihir, Noah
