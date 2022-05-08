@@ -1,5 +1,5 @@
 #+TITLE: Zusammenfassung
-#+author: Mihir Mahajan, Alfred Nguyen, Noah Kieferngarten
+#+author: Mihir Mahajan, Alfred Nguyen, Noah Kiefer Diaz
 
 * Diskrete Wahrscheinlichkeitsräume
 ** Grundlagen
@@ -78,3 +78,11 @@ $Pr[A_i|B] = \frac{Pr[A_i \cap B]}{Pr[B]} = \frac{Pr[B|A_i] * Pr[A_i]}{\sum_{j=1
 * Unabhängigkeit
  Wenn das auftreten von Ereignissen unabhängig ist.
  $Pr[A \cup B] = Pr[A] * Pr[B]$
+
+* Zufallsvariablen
+
+** Grundlagen
+Anstatt der Ereignisse selbst sind wir oft an ”Auswirkungen“ oder ”Merkmalen“ der (Elementarereignisse) interessiert
+
+Sei ein Wahrscheinlichkeitsraum auf der Ergebnismenge Ω gegeben. Eine Abbildung $X : \Omega \rightarrow R$ heißt (numerische) Zufallsvariable.
+Eine Zufallsvariable X über einer endlichen oder abzählbar unendlichen Ergebnismenge heißt *diskret*
