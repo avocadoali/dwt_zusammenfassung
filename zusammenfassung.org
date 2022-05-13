@@ -89,3 +89,51 @@ Anstatt der Ereignisse selbst sind wir oft an ”Auswirkungen“ oder ”Merkmal
 
 Sei ein Wahrscheinlichkeitsraum auf der Ergebnismenge Ω gegeben. Eine Abbildung $X : \Omega \rightarrow R$ heißt (numerische) Zufallsvariable.
 Eine Zufallsvariable X über einer endlichen oder abzählbar unendlichen Ergebnismenge heißt *diskret*
+
+
+** Erwartungswert und Varianz
+*** Definition 29
+Zu einer Zufalls variablen /X/ definieren wir den *Erwartungswert* $E[X]$ durch
+$E[X] := \sum_{x\in W_X} x \ast Pr[X = x] = \sum x \ast f_X(x)$
+sofern $\sum_{x\in W_X} |x| \ast Pr[X = x]$ konvergiert
+
+*** Satz 32 Monotonie des Erwartungswerts
+Seien X und Y Zufallsvariablen über dem Wahrscheinlichkeitsraum $\omega$ mit $X(\omega) \leq Y(\omega)$ für alle $\omega \in \Omega$. Dann gilt $\mathbb{E}[X] \leq \mathbb{E}[Y]$
+$\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega) * Pr[\omega] \leq \sum_{\omega \in \Omega} Y(\omega) * Pr[\omega] = \mathbb{E}[Y]$
+
+*** Rechenregeln für Erwartungswert
+Oft betrachtet man eine Zufallsvariable X nicht direkt, sondern wendet noch eine Funktion darauf an:
+$Y := f(X) = f \circ X$ , \\
+wobei $f : D \rightarrow R$ eine beliebige Funktion sei mit $W_X \subseteq D \subseteq R$.
+Beobachtung: $f(X)$ ist wieder eine Zufallsvariable.
+
+*** Satz 33 (Linearität des Erwartungswerts, einfache Version)
+Für eine beliebige Zufallsvariable $X$ und $a, b \in R$ gilt\\
+$\mathbb{E}[a * X + b] = a * \mathbb{E}[X] + b$
+
+*** Satz 34
+Sei $X$ eine Zufallsvariable mit $W_x \subseteq \mathbb{N}_0$. Dann gilt\\
+$\mathbb{E}[X] = \sum_{i=1}^\infty Pr[X \geq i]$
+
+*** Satz 35
+Sei $X$ eine Zufallsvariable und A ein Ereignis mit $Pr[A] > 0$. Die *bedingte Zufallsvariable* $X|A$ besitzt die Dichte:\\
+$f_{X|A}(x) := Pr[X=x|A] = \frac{Pr["X=x" \cap A]}{Pr[A]}$ \\
+Die Definition ist zulässig, da \\
+$\sum_{x \in W_x} f_{X|A}(x) = \sum_{x \in W_x} \frac{Pr["X=x" \cap A]}{Pr[A]} = 1$ \\
+Somit ist $\mathbb{E}[X|A] = \sum_{x \in W_x} x * f_{X|A}(x)$
+
+*** Satz 36
+TODO
+
+*** Varianz
+**** Definition 38
+Für eine Zufallsvariable X mit µ = E[X] definieren wir die Varianz Var[X] durch \\
+$Var[X] := E[(X − \mu)^2] = sum_{x \in W_X}(x − \mu)^2 * Pr[X = x]$\\
+Die Größe $\sigma := \sqrt{Var[X]}$\\
+Var[X] heißt Standardabweichung von X.
+**** Satz 39
+Für eine beliebige Zufallsvariable $X$ gilt \\
+$Var[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$
+**** Satz 41
+Für eine beliebige Zufallsvariable $X$ und $a,b \in \mathbb{R}$ gilt:\\
+$Var[a*X+b]=a^2*Var[X]$
