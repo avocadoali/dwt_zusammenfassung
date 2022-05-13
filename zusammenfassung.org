@@ -86,3 +86,10 @@ Anstatt der Ereignisse selbst sind wir oft an ”Auswirkungen“ oder ”Merkmal
 
 Sei ein Wahrscheinlichkeitsraum auf der Ergebnismenge Ω gegeben. Eine Abbildung $X : \Omega \rightarrow R$ heißt (numerische) Zufallsvariable.
 Eine Zufallsvariable X über einer endlichen oder abzählbar unendlichen Ergebnismenge heißt *diskret*
+
+
+** Erwartungswert und Varianz
+*** Definition 29
+Zu einer Zufalls variablen /X/ definieren wir den *Erwartungswert* $E[X]$ durch
+$E[X] := \sum_{x\in W_X} x \ast Pr[X = x] ] \sum x \ast f_X(x)$
+sofern $\sum_{x\in W_X} |x| \ast Pr[X = x]$ konvergiert
