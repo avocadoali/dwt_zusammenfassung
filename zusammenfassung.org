@@ -43,6 +43,8 @@ Veranschaulichen an Venn-Diagramm
 3. Dreifache schnitte dazuaddieren
 4. 4- fache schritte subtrahieren
 5. ...
+**** für nerds:
+$Pr[\bigcup_{i=0}^n  A_i] = \sum_{\emptyset \subset I \subseteq [n]} (-1)^{|I|+1}Pr[\bigcap_{i \in I} A_i]$
 
 *** Wahl der Wahrscheinlichkeiten
 Prinzip von Laplace (Pierre Simon Laplace (1749–1827)): Wenn nichts dagegen spricht, gehen wir davon aus, dass alle Elementarereignisse gleich wahrscheinlich sind.
@@ -77,7 +79,8 @@ $Pr[A_i|B] = \frac{Pr[A_i \cap B]}{Pr[B]} = \frac{Pr[B|A_i] * Pr[A_i]}{\sum_{j=1
 
 * Unabhängigkeit
  Wenn das auftreten von Ereignissen unabhängig ist.
- $Pr[A \cup B] = Pr[A] * Pr[B]$
+ - $Pr[A \cap B] = Pr[A] * Pr[B]$
+ - $Pr[A|B] = Pr[A]$
 
 * Zufallsvariablen
 

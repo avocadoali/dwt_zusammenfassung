@@ -1,4 +1,4 @@
-% Created 2022-05-08 Sun 12:51
+% Created 2022-05-12 Thu 13:44
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -29,12 +29,12 @@
 
 
 \section{Diskrete Wahrscheinlichkeitsräume}
-\label{sec:org979dd88}
+\label{sec:orgd545176}
 \subsection{Grundlagen}
-\label{sec:orgd711c3c}
+\label{sec:orgcc2c01c}
 
 \subsubsection{Definition 1}
-\label{sec:org86e8007}
+\label{sec:org5092226}
 \begin{itemize}
 \item Ein diskreter Wahrscheinlichkeitsraum ist durch eine \textbf{Ergebnismenge} \(\Omega = \{\omega_1,...,\omega_n\}\) von Elementarereignissen gegeben
 \item Jedem Ereignis \$\(\omega\)\textsubscript{i4} ist eine Wahrscheinlichkeit \(0 \leq Pr[\omega_i] \leq 1\) zugeordnet \\
@@ -47,7 +47,7 @@
 Man kann standard Mengenoperationen auf Ereignisse machen, also bei Ereignissen \(A,B\) dann auch \(A \cup B\), \(A \cap B\)
 
 \subsubsection{Lemma 8}
-\label{sec:org54435dd}
+\label{sec:org8ee8615}
 Für Ereignisse \(A,B, A_1, A_2,...,A_n\) gilt
 \begin{itemize}
 \item \(Pr[\emptyset] = 0, Pr[\Omega] = 1\)
@@ -63,20 +63,20 @@ Und für unendliche Menge von \textbf{disjunkten} Ereignissen:\\
 \end{itemize}
 
 \subsubsection{Satz 9 Siebformel}
-\label{sec:orgc15474b}
+\label{sec:org98b5796}
 Lemma 8, gilt nur für \textbf{disjunkte} Mengen. Das geht auch für nicht disjunkte!
 \begin{enumerate}
 \item Zwei Mengen
-\label{sec:org84a20dc}
+\label{sec:orge88c747}
 \(Pr[A \cup B] = Pr[A] + Pr[B] - Pr[A \cap B]\)
 \item Drei Mengen
-\label{sec:org32ab2b1}
+\label{sec:orgb9b150c}
 \(Pr[A_1 \cup A_2 \cup A_3] =\) \\
 \(Pr[A1] + Pr[A2] + Pr[A3]\) \\
 \(- Pr[A1 \cap A2] - Pr[A1 \cap A3] - Pr[A_2 \cap A_3\) \\
 \(+ Pr[A_1 \cap A_2 \cap A_3]\)
 \item n Mengen
-\label{sec:org0d3a096}
+\label{sec:org179acd8}
 Veranschaulichen an Venn-Diagramm
 \begin{enumerate}
 \item Alle aufaddieren
@@ -85,17 +85,20 @@ Veranschaulichen an Venn-Diagramm
 \item 4- fache schritte subtrahieren
 \item \ldots{}
 \end{enumerate}
+\item für nerds:
+\label{sec:orgf84ce07}
+\(Pr[\bigcup_{i=0}^n  A_i] = \sum_{\emptyset \subset I \subseteq [n]} (-1)^{|I|+1}Pr[\bigcap_{i \in I} A_i]\)
 \end{enumerate}
 
 \subsubsection{Wahl der Wahrscheinlichkeiten}
-\label{sec:orga526239}
+\label{sec:orgc1134bb}
 Prinzip von Laplace (Pierre Simon Laplace (1749–1827)): Wenn nichts dagegen spricht, gehen wir davon aus, dass alle Elementarereignisse gleich wahrscheinlich sind.
 \(Pr[E] = \frac{|E|}{|\Omega|}\)
 
 \subsection{Bedingte Wahrscheinlichkeiten}
-\label{sec:org0ebc9f6}
+\label{sec:orge8f05af}
 \subsubsection{Definition 12}
-\label{sec:orgbce5e67}
+\label{sec:orgd4d8541}
 \(A\) und \(B\) seien Ereignisse mit \(Pr[B] > 0\). Die bedingte Wahrscheinlichkeit \(Pr[A|B]\) von A gegeben B ist definiert als:
 \(Pr[A|B] := \frac{Pr[A \cap B]}{Pr[B]}\)
 
@@ -105,24 +108,24 @@ Die bedingten Wahrscheinlichkeiten \(Pr[·|B]\) bilden für ein beliebiges Ereig
 
 
 \subsubsection{Baba Beispiele}
-\label{sec:org6ff1b43}
+\label{sec:org97a79c5}
 \begin{enumerate}
 \item {\bfseries\sffamily TODO} Töchterproblem
-\label{sec:org393affb}
+\label{sec:org24105fd}
 \item {\bfseries\sffamily TODO} Ziegenproblem
-\label{sec:org170ca70}
+\label{sec:orga5069e8}
 \item {\bfseries\sffamily TODO} Geburtstagsproblem
-\label{sec:orgd03dcad}
+\label{sec:orgd578f30}
 \end{enumerate}
 
 \subsubsection{Satz 18 (Satz von der totalen Wahrscheinlichkeit)}
-\label{sec:orgeb98ea8}
+\label{sec:org43bfdbb}
 Die Ereignisse \(A_1, ..., An\) seien paarweise disjunkt und es gelte \(B \subseteq A1 \cup ... \cup An\). \\
 \(Pr[B] = \sum_{i=1}^n Pr[B|A_i] * Pr[A_i]\) \\
 analog für \(n \rightarrow \infty\)
 
 \subsubsection{Satz 19 (Satz von Bayes)}
-\label{sec:orgaec011d}
+\label{sec:orge8db2ae}
 Es seien \(A_1, ..., A_n\) paarweise disjunkt, mit \(Pr[A_j] > 0\) für alle j.
 Außerdem sei \(B \subseteq A_1 \cup ... \cup A_n\) ein Ereignis mit \(Pr[B]>0\).
 Dann gilt für beliebiges \(i \in [n]\)
@@ -130,15 +133,18 @@ Dann gilt für beliebiges \(i \in [n]\)
 \(Pr[A_i|B] = \frac{Pr[A_i \cap B]}{Pr[B]} = \frac{Pr[B|A_i] * Pr[A_i]}{\sum_{j=1}^n Pr[B|A_j] * Pr[A_j]}\)
 
 \section{Unabhängigkeit}
-\label{sec:orgb98d953}
+\label{sec:orgda9a015}
 Wenn das auftreten von Ereignissen unabhängig ist.
-\(Pr[A \cup B] = Pr[A] * Pr[B]\)
+\begin{itemize}
+\item \(Pr[A \cap B] = Pr[A] * Pr[B]\)
+\item \(Pr[A|B] = Pr[A]\)
+\end{itemize}
 
 \section{Zufallsvariablen}
-\label{sec:org153754c}
+\label{sec:org597a75f}
 
 \subsection{Grundlagen}
-\label{sec:orgad9b5cf}
+\label{sec:orgbf50ca5}
 Anstatt der Ereignisse selbst sind wir oft an ”Auswirkungen“ oder ”Merkmalen“ der (Elementarereignisse) interessiert
 
 Sei ein Wahrscheinlichkeitsraum auf der Ergebnismenge Ω gegeben. Eine Abbildung \(X : \Omega \rightarrow R\) heißt (numerische) Zufallsvariable.
