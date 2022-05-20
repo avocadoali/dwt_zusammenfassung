@@ -91,5 +91,14 @@ Eine Zufallsvariable X über einer endlichen oder abzählbar unendlichen Ergebni
 ** Erwartungswert und Varianz
 *** Definition 29
 Zu einer Zufalls variablen /X/ definieren wir den *Erwartungswert* $E[X]$ durch
-$E[X] := \sum_{x\in W_X} x \ast Pr[X = x] ] \sum x \ast f_X(x)$
+$E[X] := \sum_{x\in W_X} x \ast Pr[X = x] ] \sum x \ast f_X(x)$,    wo $f_X(x)$ die Dichte ist
 sofern $\sum_{x\in W_X} |x| \ast Pr[X = x]$ konvergiert
+
+$E[X] = /siehe\ oben/ = \sum_{x\in W_X} x\sum_{\omega \in \Omega :X(\omega)=\omega} Pr[w]$
+       $= \sum_{\omega \in \Omega} X(\omega)  \ast Pr[\omega]$
+*** Satz 33 Linearität des Erwartungswert
+$E[a\ast X\ast b] = a \ast E[x]\ast b,     \quad a, b\in \mathbb{R}$
+
+*** Definition 35 Erwartungswert bei bedingter Wahrscheinlichkeit
+Sei /X/ eine Zufallsvariable & A ein Ereignis.
+$f_{X|A}(x) := Pr[X = x|A] = \frac{Pr["X=x" \cap \:A]}{Pr[A]}$
