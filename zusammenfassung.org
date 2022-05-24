@@ -127,9 +127,9 @@ TODO
 
 *** Varianz
 **** Definition 38
-Für eine Zufallsvariable X mit µ = E[X] definieren wir die Varianz Var[X] durch \\
-$Var[X] := E[(X − \mu)^2] = sum_{x \in W_X}(x − \mu)^2 * Pr[X = x]$\\
-Die Größe $\sigma := \sqrt{Var[X]}$\\
+Für eine Zufallsvariable X mit $\mu = E[X]$ definieren wir die Varianz $Var[X]$ durch \\
+$Var[X] := E[(X − \mu)^2] = \sum_{x \in W_X}(x − \mu)^2 * Pr[X = x]$ \\
+Die Größe $\sigma := \sqrt{Var[X]}$ \\
 Var[X] heißt Standardabweichung von X.
 **** Satz 39
 Für eine beliebige Zufallsvariable $X$ gilt \\
@@ -137,3 +137,48 @@ $Var[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$
 **** Satz 41
 Für eine beliebige Zufallsvariable $X$ und $a,b \in \mathbb{R}$ gilt:\\
 $Var[a*X+b]=a^2*Var[X]$
+
+** Mehrere Zufallsvariablen
+Wie kann man mit mehreren Zufallsvariablen über demselben Wahrscheinlichkeitsraum rechnen, auch wenn sie, wie im obigen Beispiel, sehr voneinander abhängig sind?
+Wir untersuchen Wahrscheinlichkeiten der Art \\
+$Pr[X = x, Y = y] = Pr[{\omega; X(\omega) = x, Y (\omega)) = y\}]$
+
+*** hypergeometrische Verteilung
+Allgemein nennt man Zufallsvariablen mit der Dichte
+$Pr[X = x] = \frac{\begin{pmatrix}b \\ x \end{pmatrix} * \begin{pmatrix} a \\ r-x \end{pmatrix}}{\begin{pmatrix}a+b \\ r \end{pmatrix}}$
+*hypergeometrisch verteilt*. Durch diese Dichte wird ein Experiment modelliert, bei dem r Elemente ohne Zurücklegen aus einer Grundmenge der Mächtigkeit a + b mit b besonders ausgezeichneten Elementen gezogen werden.
+
+*** Gemeinsame Dichte
+Die Funktion \\
+$f_{X,Y} (x, y) := Pr[X = x, Y = y]$
+heißt gemeinsame Dichte der Zufallsvariablen X und Y. \\
+Aus der gemeinsamen Dichte $f_{X,Y}$ kann man ableiten \\
+$f_X(x) = \sum_{y \in W_Y} f_{X,Y} (x,y)$ \\
+$f_Y(x) = \sum_{x \in W_X} f_{X,Y} (x,y)$ \\
+Die Funktionen f_X und f_Y nennt man Randdichten. \\
+*** Unabhängigkeit von Zufallsvariablen
+**** Definition 45
+Die Zufallsvariablen $X_1,...,X_n$ heißen unabhängig, wenn für alle $(x_1,...x_n) \in W_{X_1} \times ... \times W_{X_n}$ gilt: \\
+$Pr[X_1 = x_1,...,X_n = x_n] = Pr[X_1 = x_1] * ... * Pr[X_n = x_n]$
+
+Analog: Gesamte Dichte ist Produkt aus einzelnen Dichten.
+Analog: Gesamte Verteilung ist Produkt aus einzelnen Verteilungen.
+
+*** Zusammengesetzte Zufallsvariablen
+**** Satz 49
+Für zwei unabhängige Zufallsvariablen X und Y sei Z := X + Y . Es gilt
+$f_Z(z) = \sum_{x \in W_X} f_X(x) * f_Y(z − x)$
+
+*** Momente zusammengesetzter Zufallsvariablen
+**** Satz 50 (Linearität des Erwartungswerts)
+Für Zufallsvariablen $X_1,...,X_n$ und $X:=a_1X_1 + ... + a_nX_n$ mit $a_1, ...a_n \in R$ gilt \\
+$\mathbb{E}[X] = a_1 \mathbb{E}[X_1]+ ... + a_n\mathbb{E}[X_n]$
+
+**** Satz 52 (Multiplikativität des Erwartungswerts)
+Für unabhängige Zufallsvariablen $X_1,..., X_n$ gilt
+$E[X1*...*Xn] = E[X1]*...*E[Xn]$
+
+**** Definition 53
+Zu einem Ereignis A heißt die Zufallsvariable \\
+$I_A = \begin{array}{ll}  1 & \, \textrm{falls A eintritt} \\ 0 & \, \textrm{sonst} \\\end{array}$ \\
+*Indikatorvariable* des Ereigniss A
