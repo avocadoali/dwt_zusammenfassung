@@ -43,6 +43,8 @@ Veranschaulichen an Venn-Diagramm
 3. Dreifache schnitte dazuaddieren
 4. 4- fache schritte subtrahieren
 5. ...
+**** für nerds:
+$Pr[\bigcup_{i=0}^n  A_i] = \sum_{\emptyset \subset I \subseteq [n]} (-1)^{|I|+1}Pr[\bigcap_{i \in I} A_i]$
 
 *** Wahl der Wahrscheinlichkeiten
 Prinzip von Laplace (Pierre Simon Laplace (1749–1827)): Wenn nichts dagegen spricht, gehen wir davon aus, dass alle Elementarereignisse gleich wahrscheinlich sind.
@@ -77,7 +79,8 @@ $Pr[A_i|B] = \frac{Pr[A_i \cap B]}{Pr[B]} = \frac{Pr[B|A_i] * Pr[A_i]}{\sum_{j=1
 
 * Unabhängigkeit
  Wenn das auftreten von Ereignissen unabhängig ist.
- $Pr[A \cup B] = Pr[A] * Pr[B]$
+ - $Pr[A \cap B] = Pr[A] * Pr[B]$
+ - $Pr[A|B] = Pr[A]$
 
 * Zufallsvariablen
 
@@ -91,5 +94,140 @@ Eine Zufallsvariable X über einer endlichen oder abzählbar unendlichen Ergebni
 ** Erwartungswert und Varianz
 *** Definition 29
 Zu einer Zufalls variablen /X/ definieren wir den *Erwartungswert* $E[X]$ durch
-$E[X] := \sum_{x\in W_X} x \ast Pr[X = x] ] \sum x \ast f_X(x)$
+$E[X] := \sum_{x\in W_X} x \ast Pr[X = x] = \sum x \ast f_X(x)$
 sofern $\sum_{x\in W_X} |x| \ast Pr[X = x]$ konvergiert
+
+*** Satz 32 Monotonie des Erwartungswerts
+Seien X und Y Zufallsvariablen über dem Wahrscheinlichkeitsraum $\omega$ mit $X(\omega) \leq Y(\omega)$ für alle $\omega \in \Omega$. Dann gilt $\mathbb{E}[X] \leq \mathbb{E}[Y]$
+$\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega) * Pr[\omega] \leq \sum_{\omega \in \Omega} Y(\omega) * Pr[\omega] = \mathbb{E}[Y]$
+
+*** Rechenregeln für Erwartungswert
+Oft betrachtet man eine Zufallsvariable X nicht direkt, sondern wendet noch eine Funktion darauf an:
+$Y := f(X) = f \circ X$ , \\
+wobei $f : D \rightarrow R$ eine beliebige Funktion sei mit $W_X \subseteq D \subseteq R$.
+Beobachtung: $f(X)$ ist wieder eine Zufallsvariable.
+
+*** Satz 33 (Linearität des Erwartungswerts, einfache Version)
+Für eine beliebige Zufallsvariable $X$ und $a, b \in R$ gilt\\
+$\mathbb{E}[a * X + b] = a * \mathbb{E}[X] + b$
+
+*** Satz 34
+Sei $X$ eine Zufallsvariable mit $W_x \subseteq \mathbb{N}_0$. Dann gilt\\
+$\mathbb{E}[X] = \sum_{i=1}^\infty Pr[X \geq i]$
+
+*** Satz 35
+Sei $X$ eine Zufallsvariable und A ein Ereignis mit $Pr[A] > 0$. Die *bedingte Zufallsvariable* $X|A$ besitzt die Dichte:\\
+$f_{X|A}(x) := Pr[X=x|A] = \frac{Pr["X=x" \cap A]}{Pr[A]}$ \\
+Die Definition ist zulässig, da \\
+$\sum_{x \in W_x} f_{X|A}(x) = \sum_{x \in W_x} \frac{Pr["X=x" \cap A]}{Pr[A]} = 1$ \\
+Somit ist $\mathbb{E}[X|A] = \sum_{x \in W_x} x * f_{X|A}(x)$
+
+*** Satz 36
+TODO
+
+*** Varianz
+**** Definition 38
+Für eine Zufallsvariable X mit $\mu = E[X]$ definieren wir die Varianz $Var[X]$ durch \\
+$Var[X] := E[(X − \mu)^2] = \sum_{x \in W_X}(x − \mu)^2 * Pr[X = x]$ \\
+Die Größe $\sigma := \sqrt{Var[X]}$ \\
+Var[X] heißt Standardabweichung von X.
+**** Satz 39
+Für eine beliebige Zufallsvariable $X$ gilt \\
+$Var[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$
+**** Satz 41
+Für eine beliebige Zufallsvariable $X$ und $a,b \in \mathbb{R}$ gilt:\\
+$Var[a*X+b]=a^2*Var[X]$
+
+** Mehrere Zufallsvariablen
+Wie kann man mit mehreren Zufallsvariablen über demselben Wahrscheinlichkeitsraum rechnen, auch wenn sie, wie im obigen Beispiel, sehr voneinander abhängig sind?
+Wir untersuchen Wahrscheinlichkeiten der Art \\
+$Pr[X = x, Y = y] = Pr[{\omega; X(\omega) = x, Y (\omega)) = y\}]$
+
+*** hypergeometrische Verteilung
+Allgemein nennt man Zufallsvariablen mit der Dichte
+$Pr[X = x] = \frac{\begin{pmatrix}b \\ x \end{pmatrix} * \begin{pmatrix} a \\ r-x \end{pmatrix}}{\begin{pmatrix}a+b \\ r \end{pmatrix}}$
+*hypergeometrisch verteilt*. Durch diese Dichte wird ein Experiment modelliert, bei dem r Elemente ohne Zurücklegen aus einer Grundmenge der Mächtigkeit a + b mit b besonders ausgezeichneten Elementen gezogen werden.
+
+*** Gemeinsame Dichte
+Die Funktion \\
+$f_{X,Y} (x, y) := Pr[X = x, Y = y]$
+heißt gemeinsame Dichte der Zufallsvariablen X und Y. \\
+Aus der gemeinsamen Dichte $f_{X,Y}$ kann man ableiten \\
+$f_X(x) = \sum_{y \in W_Y} f_{X,Y} (x,y)$ \\
+$f_Y(x) = \sum_{x \in W_X} f_{X,Y} (x,y)$ \\
+Die Funktionen f_X und f_Y nennt man Randdichten. \\
+*** Unabhängigkeit von Zufallsvariablen
+**** Definition 45
+Die Zufallsvariablen $X_1,...,X_n$ heißen unabhängig, wenn für alle $(x_1,...x_n) \in W_{X_1} \times ... \times W_{X_n}$ gilt: \\
+$Pr[X_1 = x_1,...,X_n = x_n] = Pr[X_1 = x_1] * ... * Pr[X_n = x_n]$
+
+Analog: Gesamte Dichte ist Produkt aus einzelnen Dichten.
+Analog: Gesamte Verteilung ist Produkt aus einzelnen Verteilungen.
+
+*** Zusammengesetzte Zufallsvariablen
+**** Satz 49
+Für zwei unabhängige Zufallsvariablen X und Y sei Z := X + Y . Es gilt
+$f_Z(z) = \sum_{x \in W_X} f_X(x) * f_Y(z - x)$
+
+*** Momente zusammengesetzter Zufallsvariablen
+**** Satz 50 (Linearität des Erwartungswerts)
+Für Zufallsvariablen $X_1,...,X_n$ und $X:=a_1X_1 + ... + a_nX_n$ mit $a_1, ...a_n \in R$ gilt \\
+$\mathbb{E}[X] = a_1 \mathbb{E}[X_1]+ ... + a_n\mathbb{E}[X_n]$
+
+**** Satz 52 (Multiplikativität des Erwartungswerts)
+Für unabhängige Zufallsvariablen $X_1,..., X_n$ gilt
+$E[X1*...*Xn] = E[X1]*...*E[Xn]$
+
+**** Definition 53
+Zu einem Ereignis A heißt die Zufallsvariable \\
+$I_A = \begin{array}{ll}  1 & \, \textrm{falls A eintritt} \\ 0 & \, \textrm{sonst} \\\end{array}$ \\
+*Indikatorvariable* des Ereigniss A
+
+* Wichtige diskrete Verteilungen
+
+** Bernoulli Verteilung
+Eine Zufallsvariable X mit $W_X = {0, 1}$ und der Dichte
+$f_X(x) = \left\{ \begin{array}{ll} p & x = 1 \\ 1-p & x = 0 \\ \end{array} \right$
+
+heißt Bernoulli-verteilt. Den Parameter p nennen wir Erfolgswahrscheinlichkeit.
+Eine solche Verteilung erhält man z.B. bei einer einzelnen Indikatorvariablen. Es gilt mir $q := p-1$
+$E[X] = p$ und $Var[X] = pq$,
+wegen $E[X^2] = p$ und $Var[X] = E[X^2] − E[X]^2 = p − p^2$.
+** Binomialverteilung
+Eine Bernoulli-verteilte Zufallsvariable entspricht der Verteilung einer Indikatorvariablen. Häufig betrachtet man jedoch Summen von Indikatorvariablen.
+*** Definition 55
+Sei $X := X_1 + ... + X_n$ als Summe von n unabhängigen, Bernoulli-verteilten Zufallsvariablen mit gleicher Erfolgswahrscheinlichkeit p definiert. Dann heißt X binomialverteilt mit den Parametern n und p. In Zeichen schreiben wir
+$X \sim Bin(n,p)$
+*** Satz 56
+Wenn $X \sim Bin(n_x, p)$ und $Y \sim Bin(n_y, p)$ unabhängig sind, dann gilt für $Z := X + Y$ , dass $Z \sim Bin(n_x + n_y, p)$.
+** 5.3 Geometrische Verteilung
+Man betrachte ein Experiment, das so lange wiederholt wird, bis Erfolg eintritt. Gelingt ein einzelner Versuch mit Wahrscheinlichkeit p, so ist die Anzahl der Versuche bis zum Erfolg geometrisch verteilt.
+*** Definition 57
+Eine geometrisch verteilte Zufallsvariable X mit Parameter (Erfolgswahrscheinlichkeit)
+$p \in (0, 1]$ und $q := 1 - p$ hat die Dichte
+$f_X(i) = pq^{i-1}$ für $i \in \mathbb{N}$ .
+Für Erwartungswert und Varianz geometrisch verteilter Zufallsvariablen gilt: \\
+$E[X] = \frac{1}{p}$ und $Var[X] = \frac{q}{p^2}$
+*** Warten auf n-ten Erfolg
+$f_Z(z) = \begin{pmatrix} z - 1 \\ n - 1 \end{pmatrix} * p^n(1-p) (1-p)^{z-n}$
+** 5.4 Poisson-Verteilung
+Die Poisson-Verteilung kann verwendet werden, um die Anzahl von Ereignissen zu
+modellieren, welche mit konstanter Rate und unabhängig voneinander in einem
+Zeitintervall auftreten.
+Eine Poisson-verteilte Zufallsvariable X mit dem Parameter $\lambda \geq 0$ hat den
+Wertebereich $W_X = \mathbb{N}_0$ und besitzt die Dichte
+$f_X(i) = \frac{e^{-\lambda}\lambda^i}{i!}$ für $i \in \mathbb{N}_0$. \\
+Als Erwartungswert ergibt sich: \\
+$\mathbb{E}[X] = \lambda$ \\
+Und für die Varianz: \\
+$Var[X] = \lambda$
+*** 5.4.1 Poisson-Verteilung als Grenzwert der Binomialverteilung
+Wir betrachten eine Folge von binomialverteilten Zufallsvariablen $X_n$ mit
+$X_n \sim Bin(n, p_n)$, wobei $p_n = \lambda/n$. Für ein beliebiges k mit $0 \leq k \leq n$ ist die Wahrscheinlichkeit, dass $X_n$ den Wert k annimmt gleich: \\
+$b(k;n,p_n) = \frac{\lambda^k}{k!} * \frac{n^{\underline{k}}}{n^k} (1-\frac{\lambda}{n})^{n-k}$ \\
+Damit folgt: \\
+$\lim_{n \rightarrow \infty} b(k;n,p_n) = e^{-\lambda} * \frac{\lambda^k}{k!}$
+
+*** Satz 59
+Sind X und Y unabhängige Zufallsvariablen mit $X \sim Po(\lambda)$ und $Y \sim Po(\mu)$, dann gilt \\
+$Z := X + Y  \sim Po(\lambda + \mu)$
