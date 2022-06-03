@@ -237,12 +237,26 @@ Sind X und Y unabhängige Zufallsvariablen mit $X \sim Po(\lambda)$ und $Y \sim 
 $Z := X + Y  \sim Po(\lambda + \mu)$
 
 * Abschätzen von Wahrscheinlichkeiten
-*** Satz 60 (Markov-Ungleichung)
-Sei X eine Zufallsvariable, die nur nicht-negative Werte annimmt. Dann gilt für alle $t \in R$ mit $t > 0$, dass $Pr[X \geq t] \leq E[X]$ \\
-Äquivalent dazu: \\
-$Pr[X \geq t * E[X]] \leq 1/t$
-*** Satz 61 (Chebyshev-Ungleichung)
-Sei X eine Zufallsvariable, und sei $t \in R$ mit $t > 0$. Dann gilt \\
-$Pr[|X - E[X]| \geq t] \leq \frac{Var[X]}{t^2}$
-äquivalent dazu:
-$Pr[|X - E[X]| \geq t\sqrt{Var[X]} \leq 1/t^2
+** Satz 60: Markov-Ungleichung
+Sei /X/ eine Zufallsvariable die nur nicht negative Werte annimmt. Dann gilt für alle $t\in \mathbb{R}$ mit $t > 0$, dass
+#+BEGIN_CENTER
+$Pr[X>t] \le \frac{\mathbb{E}[X]}{t}$
+#+END_CENTER
+Äquivalent dazu: $Pr[X>t \bullet \mathbb{E}[X]] \le 1/t$
+
+** Satz 61: Chebyshev-Ungleichung
+Sei /X/ eine Zufallsvariable, und sei $t\in \mathbb{R}$ mit $t>0$. Dann gilt
+#+BEGIN_CENTER
+$Pr[|X-\mathbb{E}[X]| \ge t] \le \frac{Var[X]}{t^2}$
+#+END_CENTER
+Äquivalent dazu: $Pr[|X-\mathbb{E}[X]|\ge t\sqrt{Var[X]}] \le 1/t^2$
+
+** Satz 62: Gesetz der großen Zahlen
+Gegeben sei eine Zufallsvariable /X/ & seien $\epsilon, \delta > 0$  beliebig aber fest. Dann gilt für alle $n\ge \frac{Var[X]}{\epsilon \delta^2}$ \\
+Sind $X_1, ..., X_n$ unabhängige Zufallsvariablen mit derselben Verteilung wie /X/ und setzt man $Z:= \frac{X_1 + ... + X_n}{n}$ \\
+so gilt $Pr[|Z-\mathbb{E}[X]| \ge \delta] \le \epsilon$
+
+*** Wahrscheinlichkeit und relative Häufigkeit
+*TODO*: /slide 161/
+
+** Chernoff-Schranken
