@@ -260,3 +260,24 @@ so gilt $Pr[|Z-\mathbb{E}[X]| \ge \delta] \le \epsilon$
 *TODO*: /slide 161/
 
 ** Chernoff-Schranken
+
+
+* Erzeugende Funktionen
+** Einführung
+*** Definition 70
+Für eine Zufallsvariable /X/ mit $W_X \subseteq \mathbb{N}_0$ ist die *wahrscheinlichkeitserzeugende Funktion* definiert durch \\
+$G_X(s) := \sum_{k=0}^\infty Pr[X=k] * s^k = \mathbb{E}[s^X]$
+*** Satz 71 (Eindeutigkeit der w.e. Funktion)
+Die Dichte und die Verteilung einer Zufallsvariablen $X$ mit $W_X \subseteq \mathbb{N}$ sind durch ihre /wahrscheinlichkeitserzeugenden Funktion bestimmt/
+*** Bernoulliverteilung
+**** Für binäre zufallsvariable X:
+$G_X(s) = E[s^X] = (1 − p) * s_0 + p * s_1 = 1 - p + ps$
+**** Gleichverteilung auf {0,...,n}
+Dann gilt
+$G_X(s) = E[s^X] = \sum_{k=0}^n \frac{1}{n + 1}*  s^k = \frac{s^{n+1} − 1}{}(n + 1)(s − 1)}$
+*** Binomialverteilung
+$G_X(s) = E[s^X] = \sum_{k=0}^n \begin{pmatrix} n \\ k \end{pmatrix} p^k (1-p)^{n-k} * s^k = (1-p+ps)^n$
+*** Geometrische Verteilung
+$G_X(s) = E[s^X] = \frac{ps}{1-(1-p)s}$
+*** Poisson Verteilung
+$G_X(s) = E[s^X] = e^{\lambda(s-1)}$
