@@ -197,7 +197,8 @@ wegen $E[X^2] = p$ und $Var[X] = E[X^2] − E[X]^2 = p − p^2$.
 Eine Bernoulli-verteilte Zufallsvariable entspricht der Verteilung einer Indikatorvariablen. Häufig betrachtet man jedoch Summen von Indikatorvariablen.
 *** Definition 55
 Sei $X := X_1 + ... + X_n$ als Summe von n unabhängigen, Bernoulli-verteilten Zufallsvariablen mit gleicher Erfolgswahrscheinlichkeit p definiert. Dann heißt X binomialverteilt mit den Parametern n und p. In Zeichen schreiben wir
-$X \sim Bin(n,p)$
+$X \sim Bin(n,p)$ \\
+$Pr[X=k] = \begin{pmatrix} n \\ k \end{pmatrix} * p^k * (1-p)^{n-k}$
 *** Satz 56
 Wenn $X \sim Bin(n_x, p)$ und $Y \sim Bin(n_y, p)$ unabhängig sind, dann gilt für $Z := X + Y$ , dass $Z \sim Bin(n_x + n_y, p)$.
 ** 5.3 Geometrische Verteilung
@@ -208,9 +209,12 @@ $p \in (0, 1]$ und $q := 1 - p$ hat die Dichte
 $f_X(i) = pq^{i-1}$ für $i \in \mathbb{N}$ .
 Für Erwartungswert und Varianz geometrisch verteilter Zufallsvariablen gilt: \\
 $E[X] = \frac{1}{p}$ und $Var[X] = \frac{q}{p^2}$
+*** Wegen gedächnislosigkeit:
+$Pr[X = n+k | X > n] = Pr[X=k]$ \\
+$Pr[X > n+k | X > n] = Pr[X>k]$
 *** Warten auf n-ten Erfolg
 $f_Z(z) = \begin{pmatrix} z - 1 \\ n - 1 \end{pmatrix} * p^n(1-p) (1-p)^{z-n}$
-** 5.4 Poisson-Verteilung
+** Poisson-Verteilung
 Die Poisson-Verteilung kann verwendet werden, um die Anzahl von Ereignissen zu
 modellieren, welche mit konstanter Rate und unabhängig voneinander in einem
 Zeitintervall auftreten.
@@ -231,3 +235,14 @@ $\lim_{n \rightarrow \infty} b(k;n,p_n) = e^{-\lambda} * \frac{\lambda^k}{k!}$
 *** Satz 59
 Sind X und Y unabhängige Zufallsvariablen mit $X \sim Po(\lambda)$ und $Y \sim Po(\mu)$, dann gilt \\
 $Z := X + Y  \sim Po(\lambda + \mu)$
+
+* Abschätzen von Wahrscheinlichkeiten
+*** Satz 60 (Markov-Ungleichung)
+Sei X eine Zufallsvariable, die nur nicht-negative Werte annimmt. Dann gilt für alle $t \in R$ mit $t > 0$, dass $Pr[X \geq t] \leq E[X]$ \\
+Äquivalent dazu: \\
+$Pr[X \geq t * E[X]] \leq 1/t$
+*** Satz 61 (Chebyshev-Ungleichung)
+Sei X eine Zufallsvariable, und sei $t \in R$ mit $t > 0$. Dann gilt \\
+$Pr[|X - E[X]| \geq t] \leq \frac{Var[X]}{t^2}$
+äquivalent dazu:
+$Pr[|X - E[X]| \geq t\sqrt{Var[X]} \leq 1/t^2
