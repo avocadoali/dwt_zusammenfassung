@@ -1,4 +1,4 @@
-#+TITLE: Zusammenfassung
+#+TITLE: Diskrete Wahrscheinlichkeitsräume
 #+author: Mihir Mahajan, Alfred Nguyen, Noah Kiefer Diaz
 
 * Diskrete Wahrscheinlichkeitsräume
@@ -263,8 +263,7 @@ so gilt $Pr[|Z-\mathbb{E}[X]| \ge \delta] \le \epsilon$
 
 
 * Erzeugende Funktionen
-** Einführung
-*** Definition 70
+** Wahrscheinlichkeitserzeugende Funktion
 Für eine Zufallsvariable /X/ mit $W_X \subseteq \mathbb{N}_0$ ist die *wahrscheinlichkeitserzeugende Funktion* definiert durch \\
 $G_X(s) := \sum_{k=0}^\infty Pr[X=k] * s^k = \mathbb{E}[s^X]$
 *** Satz 71 (Eindeutigkeit der w.e. Funktion)
@@ -272,7 +271,7 @@ Die Dichte und die Verteilung einer Zufallsvariablen $X$ mit $W_X \subseteq \mat
 *** Bernoulliverteilung
 **** Für binäre zufallsvariable X:
 $G_X(s) = E[s^X] = (1 − p) * s_0 + p * s_1 = 1 - p + ps$
-**** Gleichverteilung auf {0,...,n}
+**** Gleichverteilung auf ${0,...,n}$
 Dann gilt
 $G_X(s) = E[s^X] = \sum_{k=0}^n \frac{1}{n + 1}*  s^k = \frac{s^{n+1} − 1}{}(n + 1)(s − 1)}$
 *** Binomialverteilung
@@ -281,3 +280,68 @@ $G_X(s) = E[s^X] = \sum_{k=0}^n \begin{pmatrix} n \\ k \end{pmatrix} p^k (1-p)^{
 $G_X(s) = E[s^X] = \frac{ps}{1-(1-p)s}$
 *** Poisson Verteilung
 $G_X(s) = E[s^X] = e^{\lambda(s-1)}$
+
+** Momenterzeugende Funktion
+$M_X(s) := \mathbb{E}[e^{Xs}] = \mathbb{E}[\sum_{i=0}^\infty \frac{(Xs)^i}{i!} = \mathbb{E}[\sum_{i=0}^\infty \frac{\mathbb{E}[X^i]}{i!}$ \\
+und für Zufallsvariablen $X$ mit $W_X \subseteq \mathbb{N}_0$ \\
+$MX(s) = E[e^{Xs}] = E[(e^s)^X] = G_X(e^s)$
+*** Summe von Zufallsvariablen
+Für unabhängige Zufallsvariablen $X_1,..., X_n$ und die Zufallsvariable \\
+$Z := X_1 + ... + X_n$ gilt \\
+$G_Z(s) = G_{X_1}(s) * ... * G_{X_n}(s)$ \\
+Ebenso gilt
+$M_Z(s) = M_{X_1}(s) * ... * M_{X_n}(s)$
+** Zufällige Summen
+Wir betrachten die Situation, dass $Z := X_1 + ... + X_N$, wobei $N$ ebenfalls eine Zufallsvariable ist
+*** Satz 77
+Seien $X_1, X_2,... unabhängige und identisch verteilte Zufallsvariablen mit der wahrscheinlichkeitserzeugenden Funktion $GX(s)$. \\
+$N$ sei ebenfalls eine unabhängige Zufallsvariable mit der wahrscheinlichkeitserzeugenden Funktion $G_N(s)$. Dann besitzt die Zufallsvariable $Z := X_1 + ... + X_N$ die wahrscheinlichkeitserzeugende Funktion $G_Z(s) = G_N(G_X(s))$
+
+* Formelsammlung
+** Gesetze zum Rechnen mit Ereignissen
+($A \uplus B \ \hat{=}$ disjunkte Vereinigung)
+- $Pr[\emptyset] = 0$
+- $0 \leq Pr[A] \leq 1$
+- $Pr[\overline{A}] = 1 - Pr[A]$
+- $A \subseteq B \implies Pr[A] \leq Pr[B]$
+- $\forall i \neq j: A_i \cap A_j = \emptyset \implies Pr[\bigcup_{i=1}^n A_i] = \sum_{i=1}^n A_i$ (Additionssatz)
+- $Pr[A \cup B] = Pr[A] + Pr[B] - Pr[A \cap B]$ (Siebformel)
+- $Pr[\bigcup_{i=1}^n A_i] \leq \sum_{i=1}^n A_i$ (Boolsche Ungleichung)
+- $Pr[A|B] = \frac{Pr[A \cup B]}{Pr[B]}$ für $Pr[B] > 0$ (Def. bedingte ws.)
+- $B \subseteq A_1 \uplus ... \uplus A_n \implies Pr[B] = \sum_{i=1}^n Pr[B|A_i] * Pr[A_i]$ (Satz der totalen Wahrscheinlichkeit)
+- $Pr[B] > 0, B \subseteq A_1 \uplus ... \uplus A_n \implies Pr[A_i|B] = \frac{Pr[B|A_i] * Pr[A_i]}{\sum_{i=1}^nPr[B|A_i] * A_i}$ (Satz von Bayes)
+- $Pr[A_1 \cap ... \cap A_n] = Pr[A_1] * Pr[A_2|A_1] * Pr[A_n | A_1 \cap ... \cap A_{n-1}]$ (Multiplikationssatz)
+- $A$ und $B$ unabhängig $\iff Pr[A \cap B] = A * B$
+** Erwartungswert und Varianz diskreter Zufallsvariablen
+- $E[X] = \sum_{x \in W_X} x * Pr[X = x]$ \\
+  $\sum_{\omega \in \Omega} X(\omega) * Pr[\omega]$ \\
+  ($= \sum_{i=1} Pr[X \geq i]$ , falls $W_X \subseteq \mathbb{N}_0$) (Erwartungswert)
+- $Var[X] = \mathbb{E}[(X - \mathbb{E}[X])^2]$ \\
+  $\sum_{x \in W_X} Pr[X = x] * (x - \mathbb{E}[X])^2$ (Varianz)
+** Gesetze zum Rechnen mit Zufallsvariablen
+Seien $a, b, a_1,..., a_n \in \mathbb{R}, f_1,..., f_n : \mathbb{R} \rightarrow \mathbb{R}$. $X1,...,Xn$ unabhängig
+- $X_1, ..., X_n$ unabhängig \\
+  $\iff \ \forall (a_1,...,a_n): Pr[X_1 = a_1, ..., X_n = a_n] = Pr[X_1 = a_1] * ... * Pr[X_n = a_n]$
+
+- $X_1, ..., X_n$ unabhängig \\
+  $\implies f_1(X_1), ..., f_n(X_n)$ unabhängig
+
+- $\mathbb{E}[a * X + b] = a * \mathbb{E}[X] + b$
+
+- $X(\omega) \leq Y(\omega) \forall \omega \in \Omega \implies \mathbb{E}[X] \leq \mathbb{E}[Y]$
+
+- $\mathbb{E}[X] = \sum_{i=1}^n \mathbb{E}[X | A_i] * Pr[A_i]$
+
+- $Var[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$
+
+- $Var[a * X + b] = a^2 * Var[X]$
+
+- $\mathbb{E}[a_1X_1 + ... + a_nX_n] = a_1E[X_1] + ... + a_nE[X_n]$ (Liniarität des Erwartungswerts)
+
+- $X_1, ..., X_n$ unabhängig $\implies E[X_1 * ... * X_n] = E[X_1] * ... * E[X_n]$ (Multiplikativität des Erwartungswerts)
+
+- $X_1, ..., X_n$ unabhängig $\implies Var[X_1 + ... + X_n] = Var[X_1] + ... + Var[X_n]$ (Varianz einer Summe)
+
+- $X \geq 0 \implies Pr[X \geq t] \leq E[X]/t$ für $t > 0$ (Markov)
+
+- $Pr[|X − E[X]| \geq t] \leq Var[X]/t_2$ für $t > 0$
