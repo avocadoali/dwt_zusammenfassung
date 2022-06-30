@@ -1,0 +1,124 @@
+#+TITLE: Kontinuierliche Wahrscheinlichkeitsräume
+#+author: Mihir, Noah, Alfred
+
+* Kontinuierliche Zufallsvariablen
+** Definition 79
+Eine kontinuierliche oder auch stetige Zufallsvariable $X$ und ihr zugrunde liegender kontinuierlicher (reeller) Wahrscheinlichkeitsraum sind definiert durch eine integrierbare Dichte(-funktion) \\
+$f_X : \mathbb{R} \rightarrow \mathbb{R}^+_0$ mit der Eigenschaft \\
+$\sum_{-\infty}^{+\infty} f_X(x) dx = 1$ \\
+*** Verteilungsfunktion:
+$F_X(x) := Pr[X \leq x] = Pr[\{t \in R | t \leq x\}] = \int^x_{-\infty} f_X(t) dt$.
+** Kolmogorov-Axiome und \sigma-Algebren
+*** \sigma-Algebren
+**** Definition 82
+Sei $\Omega$ eine Menge. Eine Menge $A \subseteq P(\Omega)$ heißt \sigma-Algebra über $\Omega$, wenn folgende Eigenschaften erfüllt sind:
+- (E1) $\Omega \in A$.
+- (E2) Wenn $A \in A$, dann folgt $\bar{A} \in A$.
+- (E3) Für $n \in \mathbb{N}$ sei $A_n \in A$. Dann gilt auch $\bigcup_{n=1}^\infty A_n \in A$
+*** 1.3.2 Kolmogorov-Axiome
+Sei \Omega eine beliebige Menge und A eine \sigma-Algebra über \Omega. Eine Abbildung \\
+$Pr[.] : A \rightarrow [0, 1]$ \\
+heißt Wahrscheinlichkeitsmaß auf A, wenn sie folgende Eigenschaften besitzt:
+- (W1) $Pr[\Omega] = 1$
+- (W2) A1, A2, . . . seien paarweise disjunkte Ereignisse. Dann gilt
+  $Pr[\bigcup_{i=1}^\infty A_i] = \sum_{i=1}^\infty Pr[A_i]$
+
+*** Lemma 84
+Sei $(\Omega, A, Pr)$ ein Wahrscheinlichkeitsraum. Für Ereignisse $A, B, A_1, A_2,...,A_n$ gilt
+- $Pr[\emptyset] = 0, Pr[\Omega] = 1$
+- $0 \leq Pr[A] \leq 1$
+- $Pr[\bar{A}] = 1 − Pr[A]$
+- Wenn $A \subseteq B$, so folgt $Pr[A] \leq Pr[B]$.
+- Bei paarweisen disjunkten Ereignissen A,B gilt $Pr[A \cup B] = Pr[A] + Pr[B]$
+
+** Rechnen mit Kontinuierlichen Zufallsvariablen
+*** 1.4.1 Funktionen kontinuierlicher Zufallsvariablen
+Sei $Y := g(X)$ mit einer Funktion $g : R \rightarrow R$. \\
+Die Verteilung von $Y$ erhalten wir durch \\
+$F_Y(y) = Pr[Y \leq y] = Pr[g(X) \leq y] = \int_C f_X(t) dt$ \\
+Hierbei bezeichnet $C := {t \in R | g(t) \leq y}$
+*** Kontinuierliche Zufallsvariablen als Grenzwerte diskreter Zufallsvariablen
+Wir können aus einer kontinuierlichen Zufallsvariable $X$ leicht eine diskrete Zufallsvariable konstruieren, indem wir für ein festes $\delta > 0$ definieren \\
+$X_\delta = n\delta \iff X \in [n\delta, (n + 1)\delta[$ für $n \in \mathbb{Z}$. \\
+Für X_\delta gilt \\
+$Pr[X_\delta = n_\delta] = F_X((n + 1)\delta) − F_X(n\delta)$ \\
+[[./img/Kontinuierliche_Wahrscheinlichkeitsräume/kontinuierliche_vs_diskrete_variablen.png]]
+*** Erwartungswert und Varianz:
+- $E[X] = \int_{-\infty}^\infty t * f_X(t) dt$ sofern $\int_{-\infty}^\infty |t| * f_X(t) dt$ endlich ist
+- $Var[X] = E[(X - E[X])^2] = \int_{-\infty}^\infty (t - E[X])^2 * f_X(t) dt$ sofern $E[(X - E[X])^2]$ existiert
+Für $Y = g(X)$ gilt: \\
+$E[Y] = \int_{-\infty}^\infty g(t) * f_X(t) dt$
+
+* Wichtige Stetige Verteilungen
+** Gleichverteilung
+$f_X(x) = \left\{ \begin{array}{ll} \frac{1}{b-a} & x \in [a,b] \\ 0 & sonst \\ \end{array} \right$ \\
+$F(x) = \int_{-\infty}^x f(t)dt = \left\{ \begin{array}{ll} 0 & x < a \\ \frac{x-a}{b-a} & a \leq x \leq b \\ 1 & x > b \\ \end{array} \right$ \\
+$E[X] = \frac{a+b}{2}$ \\
+$Var[X] = \frac{(a-b)^2}{12}$
+** Normalverteilung
+Eine Zufallsvariable X mit Wertebereich $W_X = R$ heißt normalverteilt mit den Parametern $\mu \in \mathbb{R}$ und $\sigma \in \mathbb{R}^+$, wenn sie die Dichte \\
+$f(x) = \frac{1}{\sqrt{2\pi}\sigma} * exp(-\frac{(x - \mu)^2}{2\sigma^2}) =: \varphi(x;\mu,\sigma)$ \\
+In Zeichen schreiben wir $X \sim N(\mu, \sigma^2)$. \\
+$N(0, 1)$ heißt Standardnormalverteilung. Die zugehörige Dichte $\varphi(x; 0, 1)$ kürzen wir $\varphi(x)$ ab
+*** Verteilungsfunktion:
+$F(x) = \frac{1}{\sqrt{2\pi}\sigma} * \int_{-\infty}^{x} exp(-\frac{(t - \mu)^2}{2\sigma^2}) dt =: \Phi(x;\mu,\sigma)$ \\
+*** Satz 93 (Lineare Transformation der Normalverteilung)
+Sei $X$ eine normalverteilte Zufallsvariable mit $X \sim N(\mu, \sigma^2)$. Dann gilt für beliebiges \\
+$a \in \mathbb{R} \backslash {0}$ und $b \in \mathbb{R}$, dass $Y = aX + b$ normalverteilt ist mit $Y \sim N(a\mu + b, a^2\sigma^2)$ .
+*** Satz 94
+$X$ sei $N(0, 1)$ -verteilt. Dann gilt
+$E[X] = 0$ und
+$Var[X] = 1$.
+*** Satz 95
+$X$ sei $N(\mu, \sigma^2)$ -verteilt. Dann gilt
+$E[X] = \mu$ und $Var[X] = \sigma^2$ .
+** 2.3 Exponentialverteilung
+$f(x) = \left\{ \begin{array}{ll} \lambda * e^{-\lambda x} & x \geq 0 \\ 0 & sonst \\ \end{array} \right$ \\
+$F(x) = 1 - e^{-\lambda x}$ für $x \geq 0$ \\
+$E[X] = \frac{1}{\lambda}$ \\
+$Var[X] = \frac{1}{\lambda^2}$ \\
+*** Satz 97 (Skalierung exponentialverteilter Variablen)
+Wenn $X$ exponentialvertielt ist mit \lambda, so ist auch $Y = aX$ mit $a>0$ exponentialvertielt mit Parameter $\lambda/a$
+** Satz 98 (Gedächtnislosigkeit)
+Eine (positive) kontinuierliche Zufallsvariable $X$ mit Wertebereich $\mathbb{R}^+$ ist genau dann exponentialverteilt, wenn für alle $x, y > 0$ gilt, dass \\
+$Pr[X > x + y | X > y] = Pr[X > x]$
+
+* Mehrere kontinuierliche Zufallsvariablen
+** Mehrdimensionale Dichten
+$\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X,Y}(x,y) dx \ dy= 1$
+*** Randverteilung
+$F_X(x) = Pr[X \leq x] =\int_{-\infty}^x [\int_{-\infty}^\infty f_{X,Y} (u, v) dv]du$ \\
+analog \\
+$f_X(x) = \int_{-\infty}^{\infty} f_{X,Y} (x, v) dv$
+*** Unabhängigkeit
+$Pr[X \leq x, Y \leq y] = Pr[X \leq x] * Pr[Y \leq y]$ \\
+gleichbedeutend \\
+$F_{X,Y} (x, y) = F_X(x) * F_Y(y)$ \\
+Differentiation ergibt \\
+$f_{X,Y} (x, y) = f_X(x) * f_Y (y)$
+** 3.3 Warteprobleme mit der Exponentialverteilung
+Die Zufallsvariablen $X_1,... , X_n$ seien unabhängig und exponentialverteilt mit den Parametern $\lambda_1, ... , \lambda_n$. Dann ist auch $X := min\{X_1, . . . , X_n\}$ exponentialverteilt mit dem Parameter $\lambda_1 + ... + \lambda_n$.
+
+** Poisson-Prozess
+- Wenn der zeitliche Abstand der Treffer geometrisch verteilt ist, so ist ihre Anzahl in einer festen Zeitspanne binomialverteilt.
+- Wenn man Ereignisse zählt, deren zeitlicher Abstand exponentialverteilt ist, so ist die Anzahl dieser Ereignisse in einer festen Zeitspanne Poisson-verteilt.
+
+** Summen von Zufallsvariablen
+Seien $X$ und $Y$ unabhängige kontinuierliche Zufallsvariablen. Für die Dichte von $Z := X + Y$ gilt \\
+$f_Z(z) =\int_{-\infty}^\infty f_X(x) * f_Y (z − x) dx$
+*** Satz 106 (Additivit¨at der Normalverteilung)
+Die Zufallsvariablen $X_1,..., X_n$ seien unabhängig und normalverteilt mit den Parametern $\mu_i, \sigma_i (1 \leq i \leq n)$ \\
+Es gilt: Die Zufallsvariable \\
+$Z := a_1X_1 + ... + a_nX_n$ \\
+ist normalverteilt mit Erwartungswert $\mu = a_1\mu_1 + ... + a_n\mu_n$ und Varianz $\sigma^2 = a^2_1\sigma^2_1+ ... + a^2_n\sigma^2_n$
+** 3.5 Momenterzeugende Funktionen für kontinuierliche Zufallsvariablen
+Für diskrete Zufallsvariablen $X$ haben wir die momenterzeugende Funktion \\
+$M_X(s) = E[e^{Xs}]$
+eingeführt. Diese Definition kann man unmittelbar auf kontinuierliche Zufallsvariablen übertragen. Die für $M_X(s)$ gezeigten Eigenschaften bleiben dabei erhalten. \\
+$M^{(k)}_X(0) = E[X^k]$
+
+* Zentraler Grenzwertsatz
+Die Zufallsvariablen $X_1, ... , X_n$ besitzen jeweils dieselbe Verteilung und seien unabhängig. Erwartungswert und Varianz von $X_i$ existieren für $i = 1, ... , n$ und seien mit $\mu$ bzw. $\sigma^2$ bezeichnet ($\sigma^2 > 0$).
+Die Zufallsvariablen $Y_n$ seien definiert durch $Yn := X_1 + . . . + X_n$ für $n \geq 1$. Dann folgt, dass die Zufallsvariablen \\
+$Z_n := \frac{Y_n − n\mu}{\sigma \sqrt{n}}$ \\
+asymptotisch standardnormalverteilt sind, also $Z_n \sim N(0, 1)$ für $n \rightarrow \infty$
