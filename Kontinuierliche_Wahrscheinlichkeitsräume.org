@@ -120,5 +120,32 @@ $M^{(k)}_X(0) = E[X^k]$
 * Zentraler Grenzwertsatz
 Die Zufallsvariablen $X_1, ... , X_n$ besitzen jeweils dieselbe Verteilung und seien unabhängig. Erwartungswert und Varianz von $X_i$ existieren für $i = 1, ... , n$ und seien mit $\mu$ bzw. $\sigma^2$ bezeichnet ($\sigma^2 > 0$).
 Die Zufallsvariablen $Y_n$ seien definiert durch $Yn := X_1 + . . . + X_n$ für $n \geq 1$. Dann folgt, dass die Zufallsvariablen \\
-$Z_n := \frac{Y_n − n\mu}{\sigma \sqrt{n}}$ \\
+$Z_n := \frac{Y_n - n\mu}{\sigma \sqrt{n}}$ \\
 asymptotisch standardnormalverteilt sind, also $Z_n \sim N(0, 1)$ für $n \rightarrow \infty$
+
+*** Intuitive Konsequenz:
+Wenn eine Zufallsgröße durch lineare Kombination vieler unabhängiger, identisch verteilter Zufallsgrößen entsteht, so erhält man näherungsweise eine Normalverteilung
+
+** Korollar 109 (Grenzwertsatz von de Moivre)
+$X_1, ... , X_n$ seien unabhängige Bernoulli-verteilte Zufallsvariablen mit gleicher Erfolgswahrscheinlichkeit $p$. Dann gilt für die Zufallsvariable $H_n$ mit \\
+$H_n := X1_ + ... + X_n$
+für $n \geq 1$, dass die Verteilung der Zufallsvariablen \\
+$H^∗_n := \frac{H_n - np}{\sqrt{np(1 - p)}}$ \\
+für $n \rightarrow \infty$ gegen die Standardnormalverteilung konvergiert.
+
+* Normalverteilung als Grenzwert der Binomialverteilung
+*** Korollar 110
+Sei $H_n \sim Bin(n, p)$ eine binomialverteilte Zufallsvariable. Die Verteilung von $H_n/n$ konvergiert gegen $N(p, p(1 − p)/n)$ für $n \rightarrow \infty$
+** Verschiedene Approximationen der Binomialverteilung
+Sei $H_n \sim Bin(n, p)$ eine binomialverteilte Zufallsvariable mit der Verteilungsfunktion $F_n$ . Für $n \rightarrow \infty$ gilt \\
+$F_n(t) = Pr[H_n/n \leq t/n]$
+$\rightarow \Phi (\frac {t/n - p}{\sqrt{p(1 - p)/n}}) = \Phi (\frac {t - np}{\sqrt{p(1 - p)n}})$
+
+Wir können $F_n$ somit für große $n$ durch $\Phi$ approximieren. Diese Approximation ist in der Praxis deshalb von Bedeutung, da die Auswertung der Verteilungsfunktion der Binomialverteilung für große $n$ sehr aufwändig ist, während für die Berechnung der Normalverteilung effiziente numerische Methoden vorliegen.
+
+* Approximationen für die Binomialverteilung
+- Approximation durch die Poisson-Verteilung: $Bin(n, p)$ wird approximiert durch $Po(np)$. Diese Approximation funktioniert sehr gut für seltene Ereignisse, d. h. wenn $np$ sehr klein gegenüber $n$ ist. Als Faustregel fordert man $n \geq 30$ und $p \leq 0,05$.
+- Approximation durch die Chernoff-Schranken: Bei der Berechnung der tails der Binomialverteilung liefern diese Ungleichungen meist sehr gute Ergebnisse. Ihre Stärke liegt darin, dass es sich bei den Schranken nicht um Approximationen, sondern um echte Abschätzungen handelt. Dies ist vor allem dann wichtig, wenn man nicht nur numerische Näherungen erhalten möchte, sondern allgemeine Aussagen über die Wahrscheinlichkeit von Ereignissen beweisen möchte.
+- Approximation durch die Normalverteilung: Als Faustregel sagt man, dass die Verteilungsfunktion $F_n(t)$ von $Bin(n, p)$ durch \\
+  $F_n(t) \approx \Phi((t - np)/ \sqrt{p(1 - p)n})$ \\
+  approximiert werden kann, wenn $np \geq 5$ und $n(1 - p) \geq 5$ gilt.
