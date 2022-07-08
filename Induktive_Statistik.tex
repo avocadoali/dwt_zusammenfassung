@@ -1,0 +1,86 @@
+% Created 2022-07-08 Fri 12:41
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Mihir Mahajan}
+\date{\today}
+\title{Induktive Statistik}
+\hypersetup{
+ pdfauthor={Mihir Mahajan},
+ pdftitle={Induktive Statistik},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+Das Ziel der induktiven Statistik besteht darin, aus gemessenen Zufallsgrößen auf die zugrunde liegenden Gesetzmäßigkeiten zu schließen.
+
+\section{Schätzvariablen}
+\label{sec:org0ae778e}
+Durch Messungen (Stichproben) Zufallsvariablen definieren (Stichprobenvariablen), über die man auf Parameter von verschiedenen Verteilungen schließen kann.
+\subsection{Erwartungstreue Schätzer}
+\label{sec:org46a273f}
+Es muss letztendlich gelten für Parameter \(\theta\) und \textbf{erwartungstreuem} Schätzer \(U\):
+\begin{center}
+\(\mathbb{E}[U] = \theta\)
+\end{center}
+Oder mit Bias:
+\begin{center}
+\(\mathbb{E}[U- \theta] = 0\)
+\end{center}
+
+\subsubsection{Mean Squared Error:}
+\label{sec:orgc0a3d57}
+Ein Maß um die güte eines Schätzers zu messen ist der mean squared error:
+\begin{center}
+\(MSE := \mathbb{E}[(U- \theta)^2]\) \\
+wenn erwarungstreu: \\
+\(MSE = \mathbb{E}[(U- \mathbb{E}[U])^2] = Var[U]\) \\
+\end{center}
+Je kleiner MSE desto effizienter der Schätzer
+
+\subsection{Maximum-Likelihood-Prinzip zur Konstruktion von Schätzvariablen}
+\label{sec:org48d3ce3}
+Sei \(X\) eine Zufallsvariable mit Dichte \(f_X(x;\theta)\), wobei \(\theta\) der Parameter von \(X\) ist.
+Eine Stichprobe liefert für jede Variable \(X_i\) einen Wert \(x_i\). \\
+\textbf{Likelihood Funktion:} \\
+\begin{center}
+\(L((x_1,...x_n); \theta) := \prod_{i=1}^n f(x_i; \theta)\)
+\end{center}
+\subsubsection{Maximum Likelihood Schätzwert}
+\label{sec:org8b6b707}
+Ein Schätzwert \(\hat{\theta}\) für den Parameter einer Verteilung \(f(x; \theta)\) heißt Maximum-Likelihood-Schätzwert (ML-Schätzwert) für eine Stichprobe \((x_1,...,x_n)\), wenn gilt:
+\begin{center}
+\(L((x_1,...x_n); \theta) \leq L((x_1,...x_n); \hat{\theta})\)
+\end{center}
+Also die Likelihood funktion maximal ist. \\
+(Trick: \(ln\) ziehen und dann ableiten)
+
+\section{Konfidenzintervalle}
+\label{sec:org1616c1c}
+Man kann weiß nie wie stark man sich auf die Schätzer verlassen kann. Als Lösung definieren wie Konfidenzintervalle also wie sicher sind wir uns, dass der gesuchte Parameter in einem bestimmten Intervall liegt.
+\begin{center}
+\(Pr[U_1 \leq \theta \leq U_2] \geq 1 − \alpha\)
+\end{center}
+Diese oben beschriebene ``sicherheit'' \(1 - \alpha\) nennt man \textbf{Konfidenzniveau}
+
+\subsection{Definition 118}
+\label{sec:org3f34de9}
+\(X\) sei eine stetige Zufallsvariable mit Verteilung \(F_X\). Eine Zahl \(x_\gamma\) mit \\
+\(F_X(x_\gamma) =  \gamma\) \\
+heißt \(\gamma\) -Quantil von \(X\) bzw. der Verteilung \(F_X\).
+\end{document}

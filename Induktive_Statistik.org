@@ -1,0 +1,53 @@
+#+TITLE: Induktive Statistik
+
+Das Ziel der induktiven Statistik besteht darin, aus gemessenen Zufallsgrößen auf die zugrunde liegenden Gesetzmäßigkeiten zu schließen.
+
+* Schätzvariablen
+Durch Messungen (Stichproben) Zufallsvariablen definieren (Stichprobenvariablen), über die man auf Parameter von verschiedenen Verteilungen schließen kann.
+** Erwartungstreue Schätzer
+Es muss letztendlich gelten für Parameter $\theta$ und *erwartungstreuem* Schätzer $U$:
+#+BEGIN_CENTER
+$\mathbb{E}[U] = \theta$
+#+END_CENTER
+Oder mit Bias:
+#+BEGIN_CENTER
+$\mathbb{E}[U- \theta] = 0$
+#+END_CENTER
+
+*** Mean Squared Error:
+Ein Maß um die güte eines Schätzers zu messen ist der mean squared error:
+#+BEGIN_CENTER
+$MSE := \mathbb{E}[(U- \theta)^2]$ \\
+wenn erwarungstreu: \\
+$MSE = \mathbb{E}[(U- \mathbb{E}[U])^2] = Var[U]$ \\
+#+END_CENTER
+Je kleiner MSE desto effizienter der Schätzer
+
+** Maximum-Likelihood-Prinzip zur Konstruktion von Schätzvariablen
+Sei $X$ eine Zufallsvariable mit Dichte $f_X(x;\theta)$, wobei $\theta$ der Parameter von $X$ ist.
+Eine Stichprobe liefert für jede Variable $X_i$ einen Wert $x_i$. \\
+*Likelihood Funktion:* \\
+#+BEGIN_CENTER
+$L((x_1,...x_n); \theta) := \prod_{i=1}^n f(x_i; \theta)$
+#+END_CENTER
+*** Maximum Likelihood Schätzwert
+Ein Schätzwert $\hat{\theta}$ für den Parameter einer Verteilung $f(x; \theta)$ heißt Maximum-Likelihood-Schätzwert (ML-Schätzwert) für eine Stichprobe $(x_1,...,x_n)$, wenn gilt:
+#+BEGIN_CENTER
+$L((x_1,...x_n); \theta) \leq L((x_1,...x_n); \hat{\theta})$
+#+END_CENTER
+Also die Likelihood funktion maximal ist. \\
+(Trick: $ln$ ziehen und dann ableiten)
+
+* Konfidenzintervalle
+Man kann weiß nie wie stark man sich auf die Schätzer verlassen kann. Als Lösung definieren wie Konfidenzintervalle also wie sicher sind wir uns, dass der gesuchte Parameter in einem bestimmten Intervall liegt.
+#+BEGIN_CENTER
+$Pr[U_1 \leq \theta \leq U_2] \geq 1 − \alpha$
+#+END_CENTER
+Diese oben beschriebene "sicherheit" $1 - \alpha$ nennt man *Konfidenzniveau*
+
+** Definition 118
+$X$ sei eine stetige Zufallsvariable mit Verteilung $F_X$. Eine Zahl $x_\gamma$ mit \\
+$F_X(x_\gamma) =  \gamma$ \\
+heißt $\gamma$ -Quantil von $X$ bzw. der Verteilung $F_X$.
+* Testen von Hypothesen
+Bislang haben wir versucht, Parameter von Verteilungen zu schätzen. In der Praxis ist man jedoch oft an der eigentlichen Kenntnis dieser Parameter gar nicht interessiert, sondern man möchte gewisse, damit zusammenhängende Behauptungen überprüfen.
