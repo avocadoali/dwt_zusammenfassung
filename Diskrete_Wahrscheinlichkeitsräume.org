@@ -192,13 +192,15 @@ $f_X(x) = \left\{ \begin{array}{ll} p & x = 1 \\ 1-p & x = 0 \\ \end{array} \rig
 heißt Bernoulli-verteilt. Den Parameter p nennen wir Erfolgswahrscheinlichkeit.
 Eine solche Verteilung erhält man z.B. bei einer einzelnen Indikatorvariablen. Es gilt mir $q := p-1$
 $E[X] = p$ und $Var[X] = pq$,
-wegen $E[X^2] = p$ und $Var[X] = E[X^2] − E[X]^2 = p − p^2$.
+wegen $E[X^2] = p$ und $Var[X] = E[X^2] - E[X]^2 = p - p^2$.
 ** Binomialverteilung
 Eine Bernoulli-verteilte Zufallsvariable entspricht der Verteilung einer Indikatorvariablen. Häufig betrachtet man jedoch Summen von Indikatorvariablen.
 *** Definition 55
 Sei $X := X_1 + ... + X_n$ als Summe von n unabhängigen, Bernoulli-verteilten Zufallsvariablen mit gleicher Erfolgswahrscheinlichkeit p definiert. Dann heißt X binomialverteilt mit den Parametern n und p. In Zeichen schreiben wir
 $X \sim Bin(n,p)$ \\
-$Pr[X=k] = \begin{pmatrix} n \\ k \end{pmatrix} * p^k * (1-p)^{n-k}$
+$Pr[X=k] = \begin{pmatrix} n \\ k \end{pmatrix} * p^k * (1-p)^{n-k}$ \\
+$\mathbb{E}[X] = np$ \\
+$Var[X] = npq$
 *** Satz 56
 Wenn $X \sim Bin(n_x, p)$ und $Y \sim Bin(n_y, p)$ unabhängig sind, dann gilt für $Z := X + Y$ , dass $Z \sim Bin(n_x + n_y, p)$.
 ** 5.3 Geometrische Verteilung

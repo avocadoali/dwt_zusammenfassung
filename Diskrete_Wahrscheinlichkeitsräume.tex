@@ -1,4 +1,4 @@
-% Created 2022-08-05 Fri 11:10
+% Created 2022-08-05 Fri 16:59
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -29,12 +29,12 @@
 
 
 \section{Diskrete Wahrscheinlichkeitsräume}
-\label{sec:orgd83581c}
+\label{sec:orge59f0d7}
 \subsection{Grundlagen}
-\label{sec:org2f7b174}
+\label{sec:org588108d}
 
 \subsubsection{Definition 1}
-\label{sec:orgd1ee3ac}
+\label{sec:orgbf383e1}
 \begin{itemize}
 \item Ein diskreter Wahrscheinlichkeitsraum ist durch eine \textbf{Ergebnismenge} \(\Omega = \{\omega_1,...,\omega_n\}\) von Elementarereignissen gegeben
 \item Jedem Ereignis \$\(\omega\)\textsubscript{i4} ist eine Wahrscheinlichkeit \(0 \leq Pr[\omega_i] \leq 1\) zugeordnet \\
@@ -47,7 +47,7 @@
 Man kann standard Mengenoperationen auf Ereignisse machen, also bei Ereignissen \(A,B\) dann auch \(A \cup B\), \(A \cap B\)
 
 \subsubsection{Lemma 8}
-\label{sec:orgd55a371}
+\label{sec:org5558a58}
 Für Ereignisse \(A,B, A_1, A_2,...,A_n\) gilt
 \begin{itemize}
 \item \(Pr[\emptyset] = 0, Pr[\Omega] = 1\)
@@ -63,20 +63,20 @@ Und für unendliche Menge von \textbf{disjunkten} Ereignissen:\\
 \end{itemize}
 
 \subsubsection{Satz 9 Siebformel}
-\label{sec:orga4b350c}
+\label{sec:org61378ec}
 Lemma 8, gilt nur für \textbf{disjunkte} Mengen. Das geht auch für nicht disjunkte!
 \begin{enumerate}
 \item Zwei Mengen
-\label{sec:orgeff381e}
+\label{sec:orgefe7924}
 \(Pr[A \cup B] = Pr[A] + Pr[B] - Pr[A \cap B]\)
 \item Drei Mengen
-\label{sec:orgbc34f05}
+\label{sec:orgba87232}
 \(Pr[A_1 \cup A_2 \cup A_3] =\) \\
 \(Pr[A1] + Pr[A2] + Pr[A3]\) \\
 \(- Pr[A1 \cap A2] - Pr[A1 \cap A3] - Pr[A_2 \cap A_3\) \\
 \(+ Pr[A_1 \cap A_2 \cap A_3]\)
 \item n Mengen
-\label{sec:org1cd563f}
+\label{sec:org6021d5b}
 Veranschaulichen an Venn-Diagramm
 \begin{enumerate}
 \item Alle aufaddieren
@@ -86,19 +86,19 @@ Veranschaulichen an Venn-Diagramm
 \item \ldots{}
 \end{enumerate}
 \item für nerds:
-\label{sec:orgd954bbe}
+\label{sec:org6848352}
 \(Pr[\bigcup_{i=0}^n  A_i] = \sum_{\emptyset \subset I \subseteq [n]} (-1)^{|I|+1}Pr[\bigcap_{i \in I} A_i]\)
 \end{enumerate}
 
 \subsubsection{Wahl der Wahrscheinlichkeiten}
-\label{sec:orgb01634f}
+\label{sec:org0d4b5c6}
 Prinzip von Laplace (Pierre Simon Laplace (1749–1827)): Wenn nichts dagegen spricht, gehen wir davon aus, dass alle Elementarereignisse gleich wahrscheinlich sind.
 \(Pr[E] = \frac{|E|}{|\Omega|}\)
 
 \subsection{Bedingte Wahrscheinlichkeiten}
-\label{sec:orgb1dc578}
+\label{sec:org31b62a5}
 \subsubsection{Definition 12}
-\label{sec:org65a4cf5}
+\label{sec:orgadca6e7}
 \(A\) und \(B\) seien Ereignisse mit \(Pr[B] > 0\). Die bedingte Wahrscheinlichkeit \(Pr[A|B]\) von A gegeben B ist definiert als:
 \(Pr[A|B] := \frac{Pr[A \cap B]}{Pr[B]}\)
 
@@ -108,24 +108,24 @@ Die bedingten Wahrscheinlichkeiten \(Pr[·|B]\) bilden für ein beliebiges Ereig
 
 
 \subsubsection{Baba Beispiele}
-\label{sec:org5761635}
+\label{sec:orgb1484a9}
 \begin{enumerate}
 \item {\bfseries\sffamily TODO} Töchterproblem
-\label{sec:orga36ea24}
+\label{sec:org6451e40}
 \item {\bfseries\sffamily TODO} Ziegenproblem
-\label{sec:org02bd00e}
+\label{sec:orgeee81e2}
 \item {\bfseries\sffamily TODO} Geburtstagsproblem
-\label{sec:orgc36beb4}
+\label{sec:org29e288f}
 \end{enumerate}
 
 \subsubsection{Satz 18 (Satz von der totalen Wahrscheinlichkeit)}
-\label{sec:org0a20931}
+\label{sec:org4fa1c44}
 Die Ereignisse \(A_1, ..., An\) seien paarweise disjunkt und es gelte \(B \subseteq A1 \cup ... \cup An\). \\
 \(Pr[B] = \sum_{i=1}^n Pr[B|A_i] * Pr[A_i]\) \\
 analog für \(n \rightarrow \infty\)
 
 \subsubsection{Satz 19 (Satz von Bayes)}
-\label{sec:orgc8f5e89}
+\label{sec:orgc7b9a38}
 Es seien \(A_1, ..., A_n\) paarweise disjunkt, mit \(Pr[A_j] > 0\) für alle j.
 Außerdem sei \(B \subseteq A_1 \cup ... \cup A_n\) ein Ereignis mit \(Pr[B]>0\).
 Dann gilt für beliebiges \(i \in [n]\)
@@ -133,7 +133,7 @@ Dann gilt für beliebiges \(i \in [n]\)
 \(Pr[A_i|B] = \frac{Pr[A_i \cap B]}{Pr[B]} = \frac{Pr[B|A_i] * Pr[A_i]}{\sum_{j=1}^n Pr[B|A_j] * Pr[A_j]}\)
 
 \section{Unabhängigkeit}
-\label{sec:org516b8bf}
+\label{sec:orgedc4788}
 Wenn das auftreten von Ereignissen unabhängig ist.
 \begin{itemize}
 \item \(Pr[A \cap B] = Pr[A] * Pr[B]\)
@@ -141,10 +141,10 @@ Wenn das auftreten von Ereignissen unabhängig ist.
 \end{itemize}
 
 \section{Zufallsvariablen}
-\label{sec:org7b9f807}
+\label{sec:org3737381}
 
 \subsection{Grundlagen}
-\label{sec:org8fb2fba}
+\label{sec:orgcedfba9}
 Anstatt der Ereignisse selbst sind wir oft an ”Auswirkungen“ oder ”Merkmalen“ der (Elementarereignisse) interessiert
 
 Sei ein Wahrscheinlichkeitsraum auf der Ergebnismenge Ω gegeben. Eine Abbildung \(X : \Omega \rightarrow R\) heißt (numerische) Zufallsvariable.
@@ -152,37 +152,37 @@ Eine Zufallsvariable X über einer endlichen oder abzählbar unendlichen Ergebni
 
 
 \subsection{Erwartungswert und Varianz}
-\label{sec:org382e78c}
+\label{sec:orgd4302c2}
 \subsubsection{Definition 29}
-\label{sec:org9212e53}
+\label{sec:orgef6cce9}
 Zu einer Zufalls variablen \emph{X} definieren wir den \textbf{Erwartungswert} \(E[X]\) durch
 \(E[X] := \sum_{x\in W_X} x \ast Pr[X = x] = \sum x \ast f_X(x)\)
 sofern \(\sum_{x\in W_X} |x| \ast Pr[X = x]\) konvergiert
 
 \subsubsection{Satz 32 Monotonie des Erwartungswerts}
-\label{sec:org61dd863}
+\label{sec:org47142a0}
 Seien X und Y Zufallsvariablen über dem Wahrscheinlichkeitsraum \(\omega\) mit \(X(\omega) \leq Y(\omega)\) für alle \(\omega \in \Omega\). Dann gilt \(\mathbb{E}[X] \leq \mathbb{E}[Y]\)
 \(\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega) * Pr[\omega] \leq \sum_{\omega \in \Omega} Y(\omega) * Pr[\omega] = \mathbb{E}[Y]\)
 
 \subsubsection{Rechenregeln für Erwartungswert}
-\label{sec:orgb2bf2cf}
+\label{sec:org9bbcc1e}
 Oft betrachtet man eine Zufallsvariable X nicht direkt, sondern wendet noch eine Funktion darauf an:
 \(Y := f(X) = f \circ X\) , \\
 wobei \(f : D \rightarrow R\) eine beliebige Funktion sei mit \(W_X \subseteq D \subseteq R\).
 Beobachtung: \(f(X)\) ist wieder eine Zufallsvariable.
 
 \subsubsection{Satz 33 (Linearität des Erwartungswerts, einfache Version)}
-\label{sec:org34f27bc}
+\label{sec:org8e9a7ca}
 Für eine beliebige Zufallsvariable \(X\) und \(a, b \in R\) gilt\\
 \(\mathbb{E}[a * X + b] = a * \mathbb{E}[X] + b\)
 
 \subsubsection{Satz 34}
-\label{sec:org76cd6aa}
+\label{sec:org84e5351}
 Sei \(X\) eine Zufallsvariable mit \(W_x \subseteq \mathbb{N}_0\). Dann gilt\\
 \(\mathbb{E}[X] = \sum_{i=1}^\infty Pr[X \geq i]\)
 
 \subsubsection{Satz 35}
-\label{sec:org32e473a}
+\label{sec:org0e8efb3}
 Sei \(X\) eine Zufallsvariable und A ein Ereignis mit \(Pr[A] > 0\). Die \textbf{bedingte Zufallsvariable} \(X|A\) besitzt die Dichte:\\
 \(f_{X|A}(x) := Pr[X=x|A] = \frac{Pr["X=x" \cap A]}{Pr[A]}\) \\
 Die Definition ist zulässig, da \\
@@ -190,42 +190,42 @@ Die Definition ist zulässig, da \\
 Somit ist \(\mathbb{E}[X|A] = \sum_{x \in W_x} x * f_{X|A}(x)\)
 
 \subsubsection{Satz 36}
-\label{sec:org561a0b7}
+\label{sec:orga933b1f}
 TODO
 
 \subsubsection{Varianz}
-\label{sec:org827a3f5}
+\label{sec:org5946cec}
 \begin{enumerate}
 \item Definition 38
-\label{sec:org4b21e9f}
+\label{sec:orgb324594}
 Für eine Zufallsvariable X mit \(\mu = E[X]\) definieren wir die Varianz \(Var[X]\) durch \\
 \(Var[X] := E[(X − \mu)^2] = \sum_{x \in W_X}(x − \mu)^2 * Pr[X = x]\) \\
 Die Größe \(\sigma := \sqrt{Var[X]}\) \\
 Var[X] heißt Standardabweichung von X.
 \item Satz 39
-\label{sec:orga401037}
+\label{sec:orga00b82c}
 Für eine beliebige Zufallsvariable \(X\) gilt \\
 \(Var[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2\)
 \item Satz 41
-\label{sec:org044dd49}
+\label{sec:orgd7809e6}
 Für eine beliebige Zufallsvariable \(X\) und \(a,b \in \mathbb{R}\) gilt:\\
 \(Var[a*X+b]=a^2*Var[X]\)
 \end{enumerate}
 
 \subsection{Mehrere Zufallsvariablen}
-\label{sec:org636c551}
+\label{sec:org8097a71}
 Wie kann man mit mehreren Zufallsvariablen über demselben Wahrscheinlichkeitsraum rechnen, auch wenn sie, wie im obigen Beispiel, sehr voneinander abhängig sind?
 Wir untersuchen Wahrscheinlichkeiten der Art \\
 \(Pr[X = x, Y = y] = Pr[{\omega; X(\omega) = x, Y (\omega)) = y\}]\)
 
 \subsubsection{hypergeometrische Verteilung}
-\label{sec:org68d4338}
+\label{sec:org0264bcd}
 Allgemein nennt man Zufallsvariablen mit der Dichte
 \(Pr[X = x] = \frac{\begin{pmatrix}b \\ x \end{pmatrix} * \begin{pmatrix} a \\ r-x \end{pmatrix}}{\begin{pmatrix}a+b \\ r \end{pmatrix}}\)
 \textbf{hypergeometrisch verteilt}. Durch diese Dichte wird ein Experiment modelliert, bei dem r Elemente ohne Zurücklegen aus einer Grundmenge der Mächtigkeit a + b mit b besonders ausgezeichneten Elementen gezogen werden.
 
 \subsubsection{Gemeinsame Dichte}
-\label{sec:org0132713}
+\label{sec:orgd2f099d}
 Die Funktion \\
 \(f_{X,Y} (x, y) := Pr[X = x, Y = y]\)
 heißt gemeinsame Dichte der Zufallsvariablen X und Y. \\
@@ -234,10 +234,10 @@ Aus der gemeinsamen Dichte \(f_{X,Y}\) kann man ableiten \\
 \(f_Y(x) = \sum_{x \in W_X} f_{X,Y} (x,y)\) \\
 Die Funktionen f\textsubscript{X} und f\textsubscript{Y} nennt man Randdichten. \\
 \subsubsection{Unabhängigkeit von Zufallsvariablen}
-\label{sec:orgd22447c}
+\label{sec:org36158bf}
 \begin{enumerate}
 \item Definition 45
-\label{sec:org278eeab}
+\label{sec:org034b384}
 Die Zufallsvariablen \(X_1,...,X_n\) heißen unabhängig, wenn für alle \((x_1,...x_n) \in W_{X_1} \times ... \times W_{X_n}\) gilt: \\
 \(Pr[X_1 = x_1,...,X_n = x_n] = Pr[X_1 = x_1] * ... * Pr[X_n = x_n]\)
 
@@ -246,76 +246,78 @@ Analog: Gesamte Verteilung ist Produkt aus einzelnen Verteilungen.
 \end{enumerate}
 
 \subsubsection{Zusammengesetzte Zufallsvariablen}
-\label{sec:orgbc1db74}
+\label{sec:org51452f6}
 \begin{enumerate}
 \item Satz 49
-\label{sec:org5481bd5}
+\label{sec:org5d86fa8}
 Für zwei unabhängige Zufallsvariablen X und Y sei Z := X + Y . Es gilt
 \(f_Z(z) = \sum_{x \in W_X} f_X(x) * f_Y(z - x)\)
 \end{enumerate}
 
 \subsubsection{Momente zusammengesetzter Zufallsvariablen}
-\label{sec:org20d583b}
+\label{sec:org09ab0b7}
 \begin{enumerate}
 \item Satz 50 (Linearität des Erwartungswerts)
-\label{sec:org6e835c0}
+\label{sec:orgd552b3b}
 Für Zufallsvariablen \(X_1,...,X_n\) und \(X:=a_1X_1 + ... + a_nX_n\) mit \(a_1, ...a_n \in R\) gilt \\
 \(\mathbb{E}[X] = a_1 \mathbb{E}[X_1]+ ... + a_n\mathbb{E}[X_n]\)
 
 \item Satz 52 (Multiplikativität des Erwartungswerts)
-\label{sec:org402833f}
+\label{sec:org4821238}
 Für unabhängige Zufallsvariablen \(X_1,..., X_n\) gilt
 \(E[X1*...*Xn] = E[X1]*...*E[Xn]\)
 
 \item Definition 53
-\label{sec:orge87f29b}
+\label{sec:org21b1065}
 Zu einem Ereignis A heißt die Zufallsvariable \\
 \(I_A = \begin{array}{ll}  1 & \, \textrm{falls A eintritt} \\ 0 & \, \textrm{sonst} \\\end{array}\) \\
 \textbf{Indikatorvariable} des Ereigniss A
 \end{enumerate}
 
 \section{Wichtige diskrete Verteilungen}
-\label{sec:orgfac94ab}
+\label{sec:org63643e6}
 
 \subsection{Bernoulli Verteilung}
-\label{sec:org8cb7336}
+\label{sec:org8d2970a}
 Eine Zufallsvariable X mit \(W_X = {0, 1}\) und der Dichte
 \(f_X(x) = \left\{ \begin{array}{ll} p & x = 1 \\ 1-p & x = 0 \\ \end{array} \right\)
 
 heißt Bernoulli-verteilt. Den Parameter p nennen wir Erfolgswahrscheinlichkeit.
 Eine solche Verteilung erhält man z.B. bei einer einzelnen Indikatorvariablen. Es gilt mir \(q := p-1\)
 \(E[X] = p\) und \(Var[X] = pq\),
-wegen \(E[X^2] = p\) und \(Var[X] = E[X^2] − E[X]^2 = p − p^2\).
+wegen \(E[X^2] = p\) und \(Var[X] = E[X^2] - E[X]^2 = p - p^2\).
 \subsection{Binomialverteilung}
-\label{sec:org23b18b6}
+\label{sec:org5841913}
 Eine Bernoulli-verteilte Zufallsvariable entspricht der Verteilung einer Indikatorvariablen. Häufig betrachtet man jedoch Summen von Indikatorvariablen.
 \subsubsection{Definition 55}
-\label{sec:orga14bc1d}
+\label{sec:org1a09e02}
 Sei \(X := X_1 + ... + X_n\) als Summe von n unabhängigen, Bernoulli-verteilten Zufallsvariablen mit gleicher Erfolgswahrscheinlichkeit p definiert. Dann heißt X binomialverteilt mit den Parametern n und p. In Zeichen schreiben wir
 \(X \sim Bin(n,p)\) \\
-\(Pr[X=k] = \begin{pmatrix} n \\ k \end{pmatrix} * p^k * (1-p)^{n-k}\)
+\(Pr[X=k] = \begin{pmatrix} n \\ k \end{pmatrix} * p^k * (1-p)^{n-k}\) \\
+\(\mathbb{E}[X] = np\) \\
+\(Var[X] = npq\)
 \subsubsection{Satz 56}
-\label{sec:org8ded12a}
+\label{sec:org0c8ac72}
 Wenn \(X \sim Bin(n_x, p)\) und \(Y \sim Bin(n_y, p)\) unabhängig sind, dann gilt für \(Z := X + Y\) , dass \(Z \sim Bin(n_x + n_y, p)\).
 \subsection{5.3 Geometrische Verteilung}
-\label{sec:orgcc3d2a9}
+\label{sec:orga5245bb}
 Man betrachte ein Experiment, das so lange wiederholt wird, bis Erfolg eintritt. Gelingt ein einzelner Versuch mit Wahrscheinlichkeit p, so ist die Anzahl der Versuche bis zum Erfolg geometrisch verteilt.
 \subsubsection{Definition 57}
-\label{sec:orgbf26f19}
+\label{sec:org40c7cc9}
 Eine geometrisch verteilte Zufallsvariable X mit Parameter (Erfolgswahrscheinlichkeit)
 \(p \in (0, 1]\) und \(q := 1 - p\) hat die Dichte
 \(f_X(i) = pq^{i-1}\) für \(i \in \mathbb{N}\) .
 Für Erwartungswert und Varianz geometrisch verteilter Zufallsvariablen gilt: \\
 \(E[X] = \frac{1}{p}\) und \(Var[X] = \frac{q}{p^2}\)
 \subsubsection{Wegen gedächnislosigkeit:}
-\label{sec:orgb5292cf}
+\label{sec:orgdd1fbef}
 \(Pr[X = n+k | X > n] = Pr[X=k]\) \\
 \(Pr[X > n+k | X > n] = Pr[X>k]\)
 \subsubsection{Warten auf n-ten Erfolg}
-\label{sec:orgf4cc72b}
+\label{sec:org672a77d}
 \(f_Z(z) = \begin{pmatrix} z - 1 \\ n - 1 \end{pmatrix} * p^n(1-p) (1-p)^{z-n}\)
 \subsection{Poisson-Verteilung}
-\label{sec:orge8649e4}
+\label{sec:orgd11c679}
 Die Poisson-Verteilung kann verwendet werden, um die Anzahl von Ereignissen zu
 modellieren, welche mit konstanter Rate und unabhängig voneinander in einem
 Zeitintervall auftreten.
@@ -327,7 +329,7 @@ Als Erwartungswert ergibt sich: \\
 Und für die Varianz: \\
 \(Var[X] = \lambda\)
 \subsubsection{5.4.1 Poisson-Verteilung als Grenzwert der Binomialverteilung}
-\label{sec:org591d77f}
+\label{sec:orgc226f24}
 Wir betrachten eine Folge von binomialverteilten Zufallsvariablen \(X_n\) mit
 \(X_n \sim Bin(n, p_n)\), wobei \(p_n = \lambda/n\). Für ein beliebiges k mit \(0 \leq k \leq n\) ist die Wahrscheinlichkeit, dass \(X_n\) den Wert k annimmt gleich: \\
 \(b(k;n,p_n) = \frac{\lambda^k}{k!} * \frac{n^{\underline{k}}}{n^k} (1-\frac{\lambda}{n})^{n-k}\) \\
@@ -335,14 +337,14 @@ Damit folgt: \\
 \(\lim_{n \rightarrow \infty} b(k;n,p_n) = e^{-\lambda} * \frac{\lambda^k}{k!}\)
 
 \subsubsection{Satz 59}
-\label{sec:org7f22dc6}
+\label{sec:org0785076}
 Sind X und Y unabhängige Zufallsvariablen mit \(X \sim Po(\lambda)\) und \(Y \sim Po(\mu)\), dann gilt \\
 \(Z := X + Y  \sim Po(\lambda + \mu)\)
 
 \section{Abschätzen von Wahrscheinlichkeiten}
-\label{sec:orge124d34}
+\label{sec:orga0e2acf}
 \subsection{Satz 60: Markov-Ungleichung}
-\label{sec:org3c77fe5}
+\label{sec:orgfc4d0bc}
 Sei \emph{X} eine Zufallsvariable die nur nicht negative Werte annimmt. Dann gilt für alle \(t\in \mathbb{R}\) mit \(t > 0\), dass
 \begin{center}
 \(Pr[X>t] \le \frac{\mathbb{E}[X]}{t}\)
@@ -350,7 +352,7 @@ Sei \emph{X} eine Zufallsvariable die nur nicht negative Werte annimmt. Dann gil
 Äquivalent dazu: \(Pr[X>t \bullet \mathbb{E}[X]] \le 1/t\)
 
 \subsection{Satz 61: Chebyshev-Ungleichung}
-\label{sec:orge9c0b0a}
+\label{sec:orgb746f43}
 Sei \emph{X} eine Zufallsvariable, und sei \(t\in \mathbb{R}\) mit \(t>0\). Dann gilt
 \begin{center}
 \(Pr[|X-\mathbb{E}[X]| \ge t] \le \frac{Var[X]}{t^2}\)
@@ -358,73 +360,73 @@ Sei \emph{X} eine Zufallsvariable, und sei \(t\in \mathbb{R}\) mit \(t>0\). Dann
 Äquivalent dazu: \(Pr[|X-\mathbb{E}[X]|\ge t\sqrt{Var[X]}] \le 1/t^2\)
 
 \subsection{Satz 62: Gesetz der großen Zahlen}
-\label{sec:org0efd0ec}
+\label{sec:org46e756d}
 Gegeben sei eine Zufallsvariable \emph{X} \& seien \(\epsilon, \delta > 0\)  beliebig aber fest. Dann gilt für alle \(n\ge \frac{Var[X]}{\epsilon \delta^2}\) \\
 Sind \(X_1, ..., X_n\) unabhängige Zufallsvariablen mit derselben Verteilung wie \emph{X} und setzt man \(Z:= \frac{X_1 + ... + X_n}{n}\) \\
 so gilt \(Pr[|Z-\mathbb{E}[X]| \ge \delta] \le \epsilon\)
 
 \subsubsection{Wahrscheinlichkeit und relative Häufigkeit}
-\label{sec:orgca0c2bb}
+\label{sec:org65523ec}
 \textbf{TODO}: \emph{slide 161}
 
 \subsection{Chernoff-Schranken}
-\label{sec:org76b90cd}
+\label{sec:org7ca94eb}
 
 
 \section{Erzeugende Funktionen}
-\label{sec:org9bd7fc1}
+\label{sec:orgf853e2d}
 \subsection{Wahrscheinlichkeitserzeugende Funktion}
-\label{sec:org50fa8da}
+\label{sec:org1d40099}
 Für eine Zufallsvariable \emph{X} mit \(W_X \subseteq \mathbb{N}_0\) ist die \textbf{wahrscheinlichkeitserzeugende Funktion} definiert durch \\
 \(G_X(s) := \sum_{k=0}^\infty Pr[X=k] * s^k = \mathbb{E}[s^X]\)
 \subsubsection{Satz 71 (Eindeutigkeit der w.e. Funktion)}
-\label{sec:org493945b}
+\label{sec:org3dc1ba9}
 Die Dichte und die Verteilung einer Zufallsvariablen \(X\) mit \(W_X \subseteq \mathbb{N}\) sind durch ihre \emph{wahrscheinlichkeitserzeugenden Funktion bestimmt}
 \subsubsection{Bernoulliverteilung}
-\label{sec:orge246460}
+\label{sec:orga711599}
 \begin{enumerate}
 \item Für binäre zufallsvariable X:
-\label{sec:orgebecd63}
+\label{sec:org6d2b193}
 \(G_X(s) = E[s^X] = (1 − p) * s_0 + p * s_1 = 1 - p + ps\)
 \item Gleichverteilung auf \({0,...,n}\)
-\label{sec:org2fd752a}
+\label{sec:org6173244}
 Dann gilt
 \(G_X(s) = E[s^X] = \sum_{k=0}^n \frac{1}{n + 1}*  s^k = \frac{s^{n+1} − 1}{}(n + 1)(s − 1)}\)
 \end{enumerate}
 \subsubsection{Binomialverteilung}
-\label{sec:org03613ec}
+\label{sec:orgedd354d}
 \(G_X(s) = E[s^X] = \sum_{k=0}^n \begin{pmatrix} n \\ k \end{pmatrix} p^k (1-p)^{n-k} * s^k = (1-p+ps)^n\)
 \subsubsection{Geometrische Verteilung}
-\label{sec:org88dc805}
+\label{sec:orgf8a1ecd}
 \(G_X(s) = E[s^X] = \frac{ps}{1-(1-p)s}\)
 \subsubsection{Poisson Verteilung}
-\label{sec:org2ee78a5}
+\label{sec:orga82a29e}
 \(G_X(s) = E[s^X] = e^{\lambda(s-1)}\)
 
 \subsection{Momenterzeugende Funktion}
-\label{sec:orgf36e87f}
+\label{sec:org18b5622}
 \(M_X(s) := \mathbb{E}[e^{Xs}] = \mathbb{E}[\sum_{i=0}^\infty \frac{(Xs)^i}{i!} = \mathbb{E}[\sum_{i=0}^\infty \frac{\mathbb{E}[X^i]}{i!}\) \\
 und für Zufallsvariablen \(X\) mit \(W_X \subseteq \mathbb{N}_0\) \\
 \(MX(s) = E[e^{Xs}] = E[(e^s)^X] = G_X(e^s)\)
 \subsubsection{Summe von Zufallsvariablen}
-\label{sec:orgf5886da}
+\label{sec:orgffdf440}
 Für unabhängige Zufallsvariablen \(X_1,..., X_n\) und die Zufallsvariable \\
 \(Z := X_1 + ... + X_n\) gilt \\
 \(G_Z(s) = G_{X_1}(s) * ... * G_{X_n}(s)\) \\
 Ebenso gilt
 \(M_Z(s) = M_{X_1}(s) * ... * M_{X_n}(s)\)
 \subsection{Zufällige Summen}
-\label{sec:orgfbc3c6e}
+\label{sec:org765194b}
 Wir betrachten die Situation, dass \(Z := X_1 + ... + X_N\), wobei \(N\) ebenfalls eine Zufallsvariable ist
 \subsubsection{Satz 77}
-\label{sec:orgc5db9ec}
+\label{sec:org7092d16}
 Seien \$X\textsubscript{1}, X\textsubscript{2},\ldots{} unabhängige und identisch verteilte Zufallsvariablen mit der wahrscheinlichkeitserzeugenden Funktion \(GX(s)\). \\
 \(N\) sei ebenfalls eine unabhängige Zufallsvariable mit der wahrscheinlichkeitserzeugenden Funktion \(G_N(s)\). Dann besitzt die Zufallsvariable \(Z := X_1 + ... + X_N\) die wahrscheinlichkeitserzeugende Funktion \(G_Z(s) = G_N(G_X(s))\)
 
 \section{Formelsammlung}
-\label{sec:org59f39e0}
+\label{sec:org3bb0e54}
 \subsection{Gesetze zum Rechnen mit Ereignissen}
-\label{sec:orged7493f}
+\label{sec:org1312e4a}
 (\(A \uplus B \ \hat{=}\) disjunkte Vereinigung)
 \begin{itemize}
 \item \(Pr[\emptyset] = 0\)
@@ -441,7 +443,7 @@ Seien \$X\textsubscript{1}, X\textsubscript{2},\ldots{} unabhängige und identis
 \item \(A\) und \(B\) unabhängig \(\iff Pr[A \cap B] = A * B\)
 \end{itemize}
 \subsection{Erwartungswert und Varianz diskreter Zufallsvariablen}
-\label{sec:org1c4b079}
+\label{sec:org6d89a93}
 \begin{itemize}
 \item \(E[X] = \sum_{x \in W_X} x * Pr[X = x]\) \\
 \(\sum_{\omega \in \Omega} X(\omega) * Pr[\omega]\) \\
@@ -451,7 +453,7 @@ Seien \$X\textsubscript{1}, X\textsubscript{2},\ldots{} unabhängige und identis
 \item \(Var[x] = E[X^2] + E[X]^2\)
 \end{itemize}
 \subsection{Gesetze zum Rechnen mit Zufallsvariablen}
-\label{sec:orgfa71d2b}
+\label{sec:org4c9c782}
 Seien \(a, b, a_1,..., a_n \in \mathbb{R}, f_1,..., f_n : \mathbb{R} \rightarrow \mathbb{R}\). \(X1,...,Xn\) unabhängig
 \begin{itemize}
 \item \(X_1, ..., X_n\) unabhängig \\
