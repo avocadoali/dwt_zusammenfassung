@@ -307,7 +307,7 @@ $N$ sei ebenfalls eine unabhängige Zufallsvariable mit der wahrscheinlichkeitse
 - $\forall i \neq j: A_i \cap A_j = \emptyset \implies Pr[\bigcup_{i=1}^n A_i] = \sum_{i=1}^n A_i$ (Additionssatz)
 - $Pr[A \cup B] = Pr[A] + Pr[B] - Pr[A \cap B]$ (Siebformel)
 - $Pr[\bigcup_{i=1}^n A_i] \leq \sum_{i=1}^n A_i$ (Boolsche Ungleichung)
-- $Pr[A|B] = \frac{Pr[A \cup B]}{Pr[B]}$ für $Pr[B] > 0$ (Def. bedingte ws.)
+- $Pr[A|B] = \frac{Pr[A \cap B]}{Pr[B]}$ für $Pr[B] > 0$ (Def. bedingte ws.)
 - $B \subseteq A_1 \uplus ... \uplus A_n \implies Pr[B] = \sum_{i=1}^n Pr[B|A_i] * Pr[A_i]$ (Satz der totalen Wahrscheinlichkeit)
 - $Pr[B] > 0, B \subseteq A_1 \uplus ... \uplus A_n \implies Pr[A_i|B] = \frac{Pr[B|A_i] * Pr[A_i]}{\sum_{i=1}^nPr[B|A_i] * A_i}$ (Satz von Bayes)
 - $Pr[A_1 \cap ... \cap A_n] = Pr[A_1] * Pr[A_2|A_1] * Pr[A_n | A_1 \cap ... \cap A_{n-1}]$ (Multiplikationssatz)
@@ -318,6 +318,7 @@ $N$ sei ebenfalls eine unabhängige Zufallsvariable mit der wahrscheinlichkeitse
   ($= \sum_{i=1} Pr[X \geq i]$ , falls $W_X \subseteq \mathbb{N}_0$) (Erwartungswert)
 - $Var[X] = \mathbb{E}[(X - \mathbb{E}[X])^2]$ \\
   $\sum_{x \in W_X} Pr[X = x] * (x - \mathbb{E}[X])^2$ (Varianz)
+- $Var[x] = E[X^2] + E[X]^2$
 ** Gesetze zum Rechnen mit Zufallsvariablen
 Seien $a, b, a_1,..., a_n \in \mathbb{R}, f_1,..., f_n : \mathbb{R} \rightarrow \mathbb{R}$. $X1,...,Xn$ unabhängig
 - $X_1, ..., X_n$ unabhängig \\
