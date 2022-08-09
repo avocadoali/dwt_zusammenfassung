@@ -215,7 +215,7 @@ $E[X] = \frac{1}{p}$ und $Var[X] = \frac{q}{p^2}$
 $Pr[X = n+k | X > n] = Pr[X=k]$ \\
 $Pr[X > n+k | X > n] = Pr[X>k]$
 *** Warten auf n-ten Erfolg
-$f_Z(z) = \begin{pmatrix} z - 1 \\ n - 1 \end{pmatrix} * p^n(1-p) (1-p)^{z-n}$
+$f_Z(z) = \begin{pmatrix} z - 1 \\ n - 1 \end{pmatrix} * p^n (1-p)^{z-n}$
 ** Poisson-Verteilung
 Die Poisson-Verteilung kann verwendet werden, um die Anzahl von Ereignissen zu
 modellieren, welche mit konstanter Rate und unabhängig voneinander in einem

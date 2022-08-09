@@ -105,7 +105,7 @@ Die Zufallsvariablen $X_1,... , X_n$ seien unabhängig und exponentialverteilt m
 
 ** Summen von Zufallsvariablen
 Seien $X$ und $Y$ unabhängige kontinuierliche Zufallsvariablen. Für die Dichte von $Z := X + Y$ gilt \\
-$f_Z(z) =\int_{-\infty}^\infty f_X(x) * f_Y (z − x) dx$
+$f_Z(z) =\int_{-\infty}^\infty f_X(x) * f_Y (z - x) dx$
 *** Satz 106 (Additivit¨at der Normalverteilung)
 Die Zufallsvariablen $X_1,..., X_n$ seien unabhängig und normalverteilt mit den Parametern $\mu_i, \sigma_i (1 \leq i \leq n)$ \\
 Es gilt: Die Zufallsvariable \\
